@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Ankit Shilarkar — Java/Spring Boot Backend Engineer. Building microservices, Azure Functions, and React Native apps at Burger Singh."/>
+  <meta name="keywords" content="Java, Spring Boot, Backend Engineer, Azure, Microservices, React Native, PostgreSQL, Docker, Kubernetes"/>
+  <meta name="author" content="Ankit Shilarkar"/>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ankit Shilarkar — Backend Engineer"/>
+  <meta property="og:description" content="Java · Spring Boot · Azure · Microservices. Building production systems that don't break at 3am."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://ankit-shilarkar.github.io/portfolio"/>
+
+  <title>Ankit Shilarkar — Backend Engineer</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800;900&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <!-- Styles — load order matters -->
+  <link rel="stylesheet" href="src/css/base.css"/>
+  <link rel="stylesheet" href="src/css/layout.css"/>
+  <link rel="stylesheet" href="src/css/components.css"/>
+  <link rel="stylesheet" href="src/css/chat.css"/>
+
+  <!-- Theme script — runs immediately to prevent flash -->
+  <script src="src/js/theme.js"></script>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <div class="nav-logo">Ankit<em>.</em></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#chat">Ask AI</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">☀️</button>
+      <a href="mailto:ankitshilarkar2504@gmail.com" class="nav-hire">Hire Me</a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-blob"></div>
+    <div class="hero-inner">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Open to new opportunities
+      </div>
+      <h1>
+        Backend<br/>
+        <span class="serif color-o">Engineer.</span><br/>
+        <span class="color-t">Full Stack</span> thinker.
+      </h1>
+      <p class="hero-sub">
+        <strong>Java · Spring Boot · Azure · React Native.</strong>
+        Currently at <strong>Burger Singh</strong>, previously at Netlink America.
+        Building everything from serverless Azure Functions to cloud telephony apps.
+        I learn fast, ship clean, and don't break prod.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">See my work →</a>
+        <a href="https://github.com/ankit-shilarkar" target="_blank" rel="noopener noreferrer" class="btn-outline">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/ankit-shilarkar2504/" target="_blank" rel="noopener noreferrer" class="btn-outline">LinkedIn ↗</a>
+      </div>
+      <div class="hero-chips">
+        <span class="chip chip-o">Spring Boot</span>
+        <span class="chip chip-t">Azure Functions</span>
+        <span class="chip chip-i">Microservices</span>
+        <span class="chip chip-y">React Native</span>
+        <span class="chip chip-r">PostgreSQL</span>
+        <span class="chip chip-t">Docker · K8s</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MARQUEE ── -->
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-inner">
+      <span class="marquee-item">Java</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">Spring Boot</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">Azure Functions</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">Microservices</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">PostgreSQL</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">Docker</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">Kubernetes</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">React Native</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">JWT · Auth</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">Kafka</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">Redis</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">CI/CD</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">System Design</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">LLM Integration</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">Java</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">Spring Boot</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">Azure Functions</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">Microservices</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">PostgreSQL</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">Docker</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">Kubernetes</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">React Native</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">JWT · Auth</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">Kafka</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">Redis</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">CI/CD</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">System Design</span><span class="marquee-item dim">·</span>
+      <span class="marquee-item">LLM Integration</span><span class="marquee-item dim">·</span>
+    </div>
+  </div>
+
+  <!-- ── ABOUT ── -->
+  <section id="about" class="section">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="sec-tag">About</div>
+        <h2 class="section-title">I don't just write code.<br/>I <em>own</em> outcomes.</h2>
+        <p>
+          I'm a <strong>Java/Spring Boot backend engineer</strong> based in India,
+          currently at <strong>Burger Singh</strong> (Feb 2026–present), previously Netlink America.
+          I went from fresher to shipping microservices, Azure Functions,
+          a React Native app, an Aadhaar onboarding portal, and a cloud telephony app — across
+          two companies in under two years.
+        </p>
+        <p>
+          I make <strong>architecture and database decisions</strong>, evaluate cost vs. performance
+          tradeoffs, and actively use <strong>Claude, ChatGPT, and Gemini</strong> to multiply
+          team output. I'm the person who reads the Kubernetes logs when prod breaks.
+        </p>
+        <p>I learn at an above-average pace. If it's worth knowing, I'll know it in a week.</p>
+      </div>
+      <div class="about-card-grid">
+        <div class="mini-card">
+          <div class="mini-card-label">Current Role</div>
+          <div class="mini-card-val">Software Engineer</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-card-label">Experience</div>
+          <div class="mini-card-val accent-o">2+ years · Mid</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-card-label">Primary Stack</div>
+          <div class="mini-card-val accent-t">Java + Spring Boot</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-card-label">Cloud</div>
+          <div class="mini-card-val accent-i">Azure · AWS · GCP</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-card-label">AI Tools</div>
+          <div class="mini-card-val">Claude · GPT · Gemini</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-card-label">Mobile / Frontend</div>
+          <div class="mini-card-val accent-o">React Native · React</div>
+        </div>
+        <div class="mini-card" style="grid-column:span 2;">
+          <div class="mini-card-label">Shipping Now @ Burger Singh</div>
+          <div class="mini-card-val" style="font-size:13px;color:var(--text2);font-weight:500;line-height:1.6;">
+            Employee Portal · Cloud Telephony App · Store Locator · React Native Expo · Azure Functions
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EXPERIENCE ── -->
+  <section id="experience" class="section-full exp-wrap" style="padding:100px 5%;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="sec-tag">Experience</div>
+      <h2 class="section-title">Where I've been.<br/>What I've <em>shipped.</em></h2>
+
+      <div class="timeline">
+
+        <!-- BURGER SINGH -->
+        <div class="tl-item">
+          <div class="tl-left">
+            <div class="tl-date">Feb 25, 2026 — Present</div>
+            <div class="tl-company" style="color:var(--orange);">Burger Singh</div>
+            <div class="tl-role">Software Engineer</div>
+          </div>
+          <div class="tl-right">
+
+            <div class="tl-project">
+              <div class="tl-project-name">
+                Azure Functions — Serverless Backend
+                <span class="badge badge-azure">Azure</span>
+                <span class="badge badge-new">Active</span>
+              </div>
+              <ul class="tl-bullets">
+                <li>Built <strong>Timer-triggered Azure Functions</strong> (cron jobs) for scheduled data processing and background automation.</li>
+                <li>Built <strong>HTTP-triggered Azure Functions</strong> as lightweight, scalable API endpoints.</li>
+                <li>Owns <strong>DB architecture and cost decisions</strong> for serverless data access patterns.</li>
+              </ul>
+            </div>
+
+            <div class="tl-project" style="border-left-color:var(--teal);">
+              <div class="tl-project-name">
+                Employee Onboarding Portal
+                <span class="badge badge-new">Going Live</span>
+              </div>
+              <ul class="tl-bullets">
+                <li>Building a full portal with <strong>Aadhaar verification</strong> for KYC and identity compliance.</li>
+                <li>Making architectural and <strong>database selection decisions</strong> for cost-efficient, scalable storage.</li>
+              </ul>
+            </div>
+
+            <div class="tl-project" style="border-left-color:var(--yellow);">
+              <div class="tl-project-name">
+                React Native Expo App — Full Ownership
+                <span class="badge badge-yellow">Mobile + Web</span>
+              </div>
+              <ul class="tl-bullets">
+                <li>Taking full ownership of an existing <strong>React Native Expo app</strong> targeting both mobile and web.</li>
+                <li>Driving active feature development and codebase improvement.</li>
+              </ul>
+            </div>
+
+            <div class="tl-project" style="border-left-color:var(--indigo);">
+              <div class="tl-project-name">
+                Cloud Telephony Middleware — Mobile App
+                <span class="badge badge-new">In Progress</span>
+              </div>
+              <ul class="tl-bullets">
+                <li>Building a <strong>cloud telephony middleware app</strong> for inbound/outbound call management.</li>
+                <li>Clean dialing interface over telephony APIs — simplifying call ops for non-technical staff.</li>
+              </ul>
+            </div>
+
+            <div class="tl-project" style="border-left-color:var(--rose);">
+              <div class="tl-project-name">
+                Store Locator — Public Web Page
+                <span class="badge badge-new">In Progress</span>
+              </div>
+              <ul class="tl-bullets">
+                <li>Users enter a <strong>PIN code</strong> → 3 nearest Burger Singh outlets on <strong>Google Maps</strong> with distances.</li>
+                <li>Google Maps API + distance matrix computation + geolocation.</li>
+              </ul>
+            </div>
+
+            <div class="tl-project" style="border-left-color:var(--rose);">
+              <div class="tl-project-name">
+                LLM-Assisted Development
+                <span class="badge badge-rose">AI Integration</span>
+              </div>
+              <ul class="tl-bullets">
+                <li>Uses <strong>Claude, ChatGPT, and Gemini</strong> to streamline development — code review, architecture, documentation.</li>
+                <li>Evaluates the right LLM per task. Contributes to <strong>cost and implementation decisions</strong>.</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- NETLINK AMERICA -->
+        <div class="tl-item">
+          <div class="tl-left">
+            <div class="tl-date">April 2024 — Feb 3, 2026</div>
+            <div class="tl-company">Netlink America</div>
+            <div class="tl-role">Associate Software Engineer<br/>Java Backend Developer</div>
+          </div>
+          <div class="tl-right">
+
+            <div class="tl-project">
+              <div class="tl-project-name">
+                KMI (Ovie) — Insurance Insights Platform
+                <span class="badge badge-live">Shipped</span>
+                <span class="badge badge-azure">Microservices</span>
+              </div>
+              <ul class="tl-bullets">
+                <li>Built <strong>secure REST APIs</strong> with JWT auth and RBAC in a microservice-oriented architecture.</li>
+                <li>Designed <strong>PostgreSQL schemas</strong> with indexing and query optimization for production performance.</li>
+                <li>Used <strong>Hibernate/JPA</strong> for ORM, transaction management, and entity mapping.</li>
+                <li>Debugged production incidents via <strong>Kubernetes pod logs</strong> — reduced recurring issues.</li>
+                <li>Worked across <strong>Docker + Kubernetes + Azure</strong> with cross-functional teams.</li>
+              </ul>
+            </div>
+
+            <div class="tl-project">
+              <div class="tl-project-name">
+                OnBase — Enterprise Document Management System
+                <span class="badge badge-live">Shipped</span>
+              </div>
+              <ul class="tl-bullets">
+                <li>Implemented <strong>audit logging and compliance features</strong> for regulatory document traceability.</li>
+                <li>Profiled and <strong>optimized slow SQL queries</strong> — rewrote joins, added indexes, improved reliability.</li>
+                <li>Refactored backend components for better <strong>readability, maintainability, and performance</strong>.</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SKILLS ── -->
+  <section id="skills" class="section">
+    <div class="sec-tag">Skills</div>
+    <h2 class="section-title">What I bring to<br/><em>every team.</em></h2>
+    <div class="skills-cols">
+      <div class="skill-block">
+        <div class="skill-block-title">Core Backend</div>
+        <div class="skill-pills">
+          <span class="pill core">Java 17</span>
+          <span class="pill core">Spring Boot 3</span>
+          <span class="pill core">Spring MVC</span>
+          <span class="pill core">Spring Security</span>
+          <span class="pill core">REST APIs</span>
+          <span class="pill">Hibernate · JPA</span>
+          <span class="pill">OOP · Design Patterns</span>
+          <span class="pill">Multithreading</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <div class="skill-block-title">Cloud & DevOps</div>
+        <div class="skill-pills">
+          <span class="pill strong">Azure Functions</span>
+          <span class="pill strong">Docker</span>
+          <span class="pill strong">Kubernetes</span>
+          <span class="pill">AWS · GCP</span>
+          <span class="pill">GitHub Actions</span>
+          <span class="pill">Jenkins · CI/CD</span>
+          <span class="pill">Maven · Gradle</span>
+          <span class="pill">GitLab</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <div class="skill-block-title">Databases</div>
+        <div class="skill-pills">
+          <span class="pill core">PostgreSQL</span>
+          <span class="pill core">SQL Optimization</span>
+          <span class="pill">MongoDB</span>
+          <span class="pill">MySQL · Oracle</span>
+          <span class="pill learning">Redis (learning)</span>
+          <span class="pill">NoSQL patterns</span>
+          <span class="pill">DB cost decisions</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <div class="skill-block-title">Architecture</div>
+        <div class="skill-pills">
+          <span class="pill strong">Microservices</span>
+          <span class="pill">JWT · OAuth2</span>
+          <span class="pill">API Gateway</span>
+          <span class="pill learning">Kafka (learning)</span>
+          <span class="pill">Serverless (Azure)</span>
+          <span class="pill">System Design</span>
+          <span class="pill">Service Discovery</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <div class="skill-block-title">Frontend & Mobile</div>
+        <div class="skill-pills">
+          <span class="pill strong">React Native Expo</span>
+          <span class="pill">React</span>
+          <span class="pill">Angular · Vue.js</span>
+          <span class="pill">JavaScript · HTML/CSS</span>
+          <span class="pill">Google Maps API</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <div class="skill-block-title">AI & Process</div>
+        <div class="skill-pills">
+          <span class="pill core">Claude · GPT · Gemini</span>
+          <span class="pill">LLM Integration</span>
+          <span class="pill">JUnit · Mockito</span>
+          <span class="pill">Agile · Scrum</span>
+          <span class="pill">Root Cause Analysis</span>
+          <span class="pill">K8s Log Debugging</span>
+          <span class="pill">Aadhaar Verification</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ── -->
+  <section id="projects" class="section-full" style="padding:100px 5%;background:var(--bg2);border-top:1px solid var(--border);">
+    <div class="section-inner">
+      <div class="sec-tag">Projects</div>
+      <h2 class="section-title">Code that does<br/><em>real things.</em></h2>
+      <div class="proj-grid">
+
+        <div class="proj-card c-o">
+          <div class="proj-type-row"><span class="proj-type">Full Stack · Spring Boot + React</span><span class="proj-demo">Demo</span></div>
+          <div class="proj-name">TaskFlow — Project Management API</div>
+          <div class="proj-desc">Full-stack task manager with JWT auth, team workspaces, CRUD + pagination, RBAC, and a React dashboard. Deployed on AWS via Docker.</div>
+          <div class="proj-tags">
+            <span class="proj-tag">Spring Boot 3</span><span class="proj-tag">JWT</span><span class="proj-tag">PostgreSQL</span><span class="proj-tag">React</span><span class="proj-tag">Docker</span><span class="proj-tag">AWS EC2</span>
+          </div>
+          <ul class="proj-bullets">
+            <li>RBAC: ADMIN / MEMBER / VIEWER roles</li>
+            <li>Global exception handling + structured errors</li>
+            <li>85%+ test coverage — JUnit + Mockito</li>
+            <li>Deployed — not localhost</li>
+          </ul>
+        </div>
+
+        <div class="proj-card c-t">
+          <div class="proj-type-row"><span class="proj-type">Microservices · Kafka · Docker</span><span class="proj-demo">Demo</span></div>
+          <div class="proj-name">ShopGrid — E-Commerce Microservices</div>
+          <div class="proj-desc">4-service e-commerce backend: Order, Inventory, Notification, API Gateway. Kafka for async events. Polyglot persistence. Docker Compose + K8s manifests.</div>
+          <div class="proj-tags">
+            <span class="proj-tag">Spring Boot</span><span class="proj-tag">Kafka</span><span class="proj-tag">Eureka</span><span class="proj-tag">PostgreSQL</span><span class="proj-tag">MongoDB</span><span class="proj-tag">Kubernetes</span>
+          </div>
+          <ul class="proj-bullets">
+            <li>Kafka async order-to-notification flow</li>
+            <li>Eureka + Spring Cloud Gateway</li>
+            <li>Polyglot: Postgres + MongoDB</li>
+          </ul>
+        </div>
+
+        <div class="proj-card c-i">
+          <div class="proj-type-row"><span class="proj-type">System Design · Redis · Rate Limiting</span><span class="proj-demo">Demo</span></div>
+          <div class="proj-name">URL Shortener — System Design</div>
+          <div class="proj-desc">Base62 encoding, Redis caching for hot URLs, token bucket rate limiting, Kafka click analytics. Architecture diagram in README.</div>
+          <div class="proj-tags">
+            <span class="proj-tag">Spring Boot</span><span class="proj-tag">Redis</span><span class="proj-tag">PostgreSQL</span><span class="proj-tag">Kafka</span><span class="proj-tag">Rate Limiting</span>
+          </div>
+          <ul class="proj-bullets">
+            <li>Redis cache — sub-5ms for hot URLs</li>
+            <li>Token bucket: 100 req/min per IP</li>
+            <li>Factory + Strategy patterns</li>
+          </ul>
+        </div>
+
+        <div class="proj-card c-r">
+          <div class="proj-type-row"><span class="proj-type">DevOps · GitHub Actions</span><span class="proj-demo">Demo</span></div>
+          <div class="proj-name">AutoDeploy — CI/CD Template</div>
+          <div class="proj-desc">Build → Test → Docker → DockerHub → cloud deploy. SonarQube quality gate + Slack alerts. Zero-downtime rolling deploy via AWS ECS.</div>
+          <div class="proj-tags">
+            <span class="proj-tag">GitHub Actions</span><span class="proj-tag">Docker</span><span class="proj-tag">SonarQube</span><span class="proj-tag">AWS ECS</span><span class="proj-tag">Maven</span>
+          </div>
+          <ul class="proj-bullets">
+            <li>Full build-to-deploy in one workflow</li>
+            <li>Quality gate blocks on coverage fail</li>
+            <li>Slack webhook on deploy result</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CHATBOT ── -->
+  <section id="chat" class="chatbot-section">
+    <div class="chatbot-inner">
+      <div class="sec-tag">AI Assistant</div>
+      <h2 class="section-title">Ask anything about<br/><em>Ankit.</em></h2>
+
+      <div class="chatbot-grid">
+        <div class="chatbot-info">
+          <h3>Powered by Claude + RAG</h3>
+          <p>
+            This chatbot is trained on Ankit's resume, projects, and experience.
+            Ask anything — his tech stack, what he's shipping, or whether he'd be a good fit for your team.
+          </p>
+          <p>
+            <strong>Architecture:</strong> Each query is scored against a knowledge base of labeled chunks
+            about Ankit (simulating cosine similarity). Top-k chunks are injected into Claude's system prompt
+            as retrieved context — that's the RAG loop.
+          </p>
+          <p>
+            Phase 2 will replace keyword scoring with real vector embeddings (pgvector / Pinecone).
+            Phase 3 upgrades to <strong>Mamba/SSM</strong> when linear-complexity models stabilize for long-context retrieval.
+          </p>
+          <div class="chatbot-tech-tags">
+            <span class="chatbot-tag">Claude (Anthropic)</span>
+            <span class="chatbot-tag">RAG Pipeline</span>
+            <span class="chatbot-tag">Keyword → Vector</span>
+            <span class="chatbot-tag">Context Retrieval</span>
+            <span class="chatbot-tag">SHA-256 Auth</span>
+            <span class="chatbot-tag">Mamba upgrade path</span>
+          </div>
+          <div class="arch-note">
+            <div class="arch-note-title">// Upgrade Roadmap</div>
+            <p>
+              Phase 1 (now): Keyword scoring → Claude API<br/>
+              Phase 2: Embeddings + pgvector / Pinecone / Qdrant<br/>
+              Phase 3: Mamba/SSM → linear-complexity retrieval<br/>
+              Auth: JWT backend + admin panel for live KB updates
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <div class="chat-widget">
+            <div class="chat-header">
+              <div class="chat-avatar">🤖</div>
+              <div>
+                <div class="chat-header-name">Ankit's AI Assistant</div>
+                <div class="chat-header-status">Online · RAG-powered · Claude</div>
+              </div>
+            </div>
+
+            <!-- Auth Gate -->
+            <div id="chatAuthSection" class="chat-auth">
+              <div class="chat-auth-title">🔐 Enter passcode to chat</div>
+              <p>Protected to prevent API abuse.<br/>Ask Ankit for the passcode, or email him directly.</p>
+              <div class="chat-auth-form">
+                <input class="chat-auth-input" id="chatPasscode" type="password" placeholder="Enter passcode..." maxlength="50" autocomplete="off"/>
+                <button class="chat-auth-btn" id="chatAuthBtn">Unlock</button>
+              </div>
+              <div class="chat-auth-error" id="chatAuthError"></div>
+              <p class="chat-auth-hint">Hint: ask Ankit directly 😄</p>
+            </div>
+
+            <!-- Chat Body -->
+            <div id="chatBody" style="display:none;flex-direction:column;">
+              <div class="chat-messages" id="chatMessages">
+                <div class="msg bot">
+                  <div class="msg-avatar">🤖</div>
+                  <div class="msg-bubble">Hey! 👋 I'm Ankit's AI assistant. I know his skills, projects, and availability. What would you like to know?</div>
+                </div>
+              </div>
+              <div class="chat-suggestions" id="chatSuggestions">
+                <button class="suggestion-btn" onclick="sendSuggestion('What is his tech stack?')">Tech stack?</button>
+                <button class="suggestion-btn" onclick="sendSuggestion('What is he building at Burger Singh?')">Current work?</button>
+                <button class="suggestion-btn" onclick="sendSuggestion('Is he available for new opportunities?')">Available?</button>
+                <button class="suggestion-btn" onclick="sendSuggestion('Tell me about his Azure experience')">Azure?</button>
+              </div>
+              <div class="chat-input-row">
+                <input class="chat-input" id="chatInput" type="text" placeholder="Ask about Ankit..." maxlength="300" disabled/>
+                <button class="chat-send" id="chatSend" disabled>➤</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact" class="section contact-wrap">
+    <div class="sec-tag">Contact</div>
+    <h2 class="section-title">Let's build something<br/><em>worth deploying.</em></h2>
+    <div class="contact-grid">
+      <div>
+        <p style="font-size:15px;margin-bottom:28px;">
+          I'm actively looking for <strong>backend, full-stack, or platform engineering roles</strong>
+          where I can work on real systems with sharp engineers. Open to full-time, hybrid, and remote.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:ankitshilarkar2504@gmail.com" class="clink">
+            <div class="clink-icon ci-o">✉️</div>
+            <div><div class="clink-label">Email</div><div class="clink-val">ankitshilarkar2504@gmail.com</div></div>
+          </a>
+          <a href="https://www.linkedin.com/in/ankit-shilarkar2504/" target="_blank" rel="noopener noreferrer" class="clink">
+            <div class="clink-icon ci-b" style="font-size:14px;font-weight:800;color:var(--indigo);">in</div>
+            <div><div class="clink-label">LinkedIn</div><div class="clink-val">/in/ankit-shilarkar2504</div></div>
+          </a>
+          <a href="https://github.com/ankit-shilarkar" target="_blank" rel="noopener noreferrer" class="clink">
+            <div class="clink-icon ci-g">⌥</div>
+            <div><div class="clink-label">GitHub</div><div class="clink-val">github.com/ankit-shilarkar</div></div>
+          </a>
+        </div>
+      </div>
+      <div class="contact-cta-card">
+        <div class="cta-emoji">🚀</div>
+        <h3>Open to Opportunities</h3>
+        <p>2+ years shipping production systems across two companies. Fast learner. Full-stack capable. Comes with LLM-assisted superpowers.</p>
+        <div class="open-to">
+          <span class="open-tag chip-o chip">Full-time</span>
+          <span class="open-tag chip-t chip">Remote / Hybrid</span>
+          <span class="open-tag chip-i chip">Backend / Full-stack</span>
+          <span class="open-tag chip-y chip">Platform / Cloud</span>
+        </div>
+        <a href="mailto:ankitshilarkar2504@gmail.com" class="btn-primary" style="width:100%;justify-content:center;">Send me a message →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Ankit Shilarkar. Built to <span>ship.</span></p>
+    <p style="font-size:12px;">Java · Spring Boot · Azure · Microservices · React Native</p>
+  </footer>
+
+  <!-- Scripts — load after body -->
+  <script src="src/js/chat.js"></script>
+  <script src="src/js/animations.js"></script>
+
+</body>
+</html>
