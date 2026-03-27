@@ -196,6 +196,20 @@ Follows Agile/Scrum workflows, participates in sprint planning and retrospective
 Strong at root-cause analysis, log-based debugging, and production incident resolution.`
   },
   {
+    id: 'iota-internship',
+    tags: ['iota', 'internship', 'intern', 'laravel', 'vue', 'vue.js', 'real estate', 'edtech', 'first job', '2023', '2024'],
+    text: `Ankit's first role was a Software Engineering Internship at IOTA Informatics (June 2023 – April 2024).
+Projects:
+1. Real Estate Management Platform (Laravel + Vue.js):
+   - Built user management, project milestones, task modules with customizable templates
+   - Developed leave management, asset, procurement, vendor, and inventory modules
+   - Integrated sales management, in-app notifications, reporting, audit logging
+   - Built real-time chat in Vue.js serving 200+ users
+2. EdTech Platform — API Integration:
+   - Integrated REST APIs across React Native (mobile) and Angular (web) clients
+   - Ensured consistent data handling across two frontend stacks`
+  },
+  {
     id: 'availability',
     tags: ['available', 'hire', 'job', 'opportunity', 'open', 'looking', 'contact', 'reach', 'when'],
     text: `Ankit is actively open to new opportunities.
