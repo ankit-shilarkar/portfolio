@@ -143,7 +143,20 @@ npx linkinator http://localhost:3000
 /add-project "Project Name" "real|demo" "stack, items" "description" "github-url"
 /update-chatbot-kb "topic" "new information"
 /deploy "optional commit message"
+/pr-review "branch-name or PR description"
 ```
+
+## 🤖 Claude Agents
+
+| Agent | Trigger |
+|-------|---------|
+| `code-reviewer` | Before every commit — checks HTML, CSS, JS, security |
+| `content-updater` | When experience/projects change |
+| `debugger` | When something looks broken |
+| `test-writer` | Before any deploy — generates QA checklist |
+| `refactorer` | Periodic cleanup — removes duplication, enforces vars |
+| `doc-writer` | After code changes — keeps README + CLAUDE.md in sync |
+| `security-auditor` | Periodic + before major releases |
 
 ---
 

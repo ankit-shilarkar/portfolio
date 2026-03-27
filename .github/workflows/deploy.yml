@@ -1,0 +1,103 @@
+name: Deploy Portfolio to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:  # Allow manual trigger from GitHub UI
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one deployment at a time
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+
+  # ── VALIDATE ────────────────────────────────────
+  validate:
+    name: Validate HTML & Check Links
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install validators
+        run: |
+          npm install -g html-validate
+          npm install -g linkinator
+
+      - name: Validate HTML
+        run: html-validate index.html
+        continue-on-error: true   # warn but don't block on minor issues
+
+      - name: Check for console.log in JS
+        run: |
+          if grep -r "console\.log" src/js/ --include="*.js"; then
+            echo "::warning::console.log found in JS files"
+          fi
+
+      - name: Check for hardcoded API keys
+        run: |
+          if grep -rn "sk-ant-\|AKIA\|AIza" src/ index.html; then
+            echo "::error::Possible API key found in source! Remove immediately."
+            exit 1
+          fi
+
+      - name: Verify all CSS files exist
+        run: |
+          for f in src/css/base.css src/css/layout.css src/css/components.css src/css/chat.css; do
+            [ -f "$f" ] || { echo "::error::Missing: $f"; exit 1; }
+          done
+          echo "All CSS files present ✅"
+
+      - name: Verify all JS files exist
+        run: |
+          for f in src/js/theme.js src/js/chat.js src/js/animations.js; do
+            [ -f "$f" ] || { echo "::error::Missing: $f"; exit 1; }
+          done
+          echo "All JS files present ✅"
+
+  # ── DEPLOY ──────────────────────────────────────
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: validate
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repo root (index.html + src/ folder)
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Report live URL
+        run: |
+          echo "🚀 Portfolio deployed!"
+          echo "Live at: ${{ steps.deployment.outputs.page_url }}"

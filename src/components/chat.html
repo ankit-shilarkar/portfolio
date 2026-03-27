@@ -1,0 +1,111 @@
+<section id="chat" class="chatbot-section">
+  <div class="chatbot-inner">
+    <div class="sec-tag">AI Assistant</div>
+    <h2 class="section-title">Ask anything about<br/><em>Ankit.</em></h2>
+
+    <div class="chatbot-grid">
+
+      <!-- LEFT: Info -->
+      <div class="chatbot-info">
+        <h3>Powered by Claude + RAG</h3>
+        <p>
+          This chatbot is trained on Ankit's resume, projects, and experience.
+          Ask it anything — his tech stack, what he's shipping, or whether he'd be a good fit for your team.
+        </p>
+        <p>
+          <strong>Architecture:</strong> Each query is matched against a knowledge base of
+          Ankit's profile using keyword scoring (simulating cosine similarity). The top-k
+          relevant chunks are injected as context into Claude's system prompt.
+        </p>
+        <p>
+          As Ankit ships new projects and updates his profile, the knowledge base is updated.
+          When vector-less state space models (like <strong>Mamba</strong>) mature for long-context
+          retrieval, the architecture will upgrade to linear-complexity inference.
+        </p>
+        <div class="chatbot-tech-tags">
+          <span class="chatbot-tag">Claude (Anthropic)</span>
+          <span class="chatbot-tag">RAG Pipeline</span>
+          <span class="chatbot-tag">Keyword → Vector</span>
+          <span class="chatbot-tag">Context Retrieval</span>
+          <span class="chatbot-tag">JWT Auth (planned)</span>
+          <span class="chatbot-tag">Mamba upgrade path</span>
+        </div>
+
+        <div class="arch-note" style="margin-top:24px;">
+          <div class="arch-note-title">// Upgrade Roadmap</div>
+          <p>
+            Phase 1 (now): Keyword-scored chunks → Claude API<br/>
+            Phase 2: Real embeddings + pgvector / Pinecone / Qdrant<br/>
+            Phase 3: Mamba/SSM when stable → linear-complexity retrieval<br/>
+            Auth: JWT backend → admin panel for live KB updates
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT: Chat Widget -->
+      <div>
+        <div class="chat-widget">
+
+          <!-- Header -->
+          <div class="chat-header">
+            <div class="chat-avatar">🤖</div>
+            <div>
+              <div class="chat-header-name">Ankit's AI Assistant</div>
+              <div class="chat-header-status">Online · RAG-powered · Claude</div>
+            </div>
+          </div>
+
+          <!-- Auth Gate -->
+          <div id="chatAuthSection" class="chat-auth">
+            <div class="chat-auth-title">🔐 Enter passcode to chat</div>
+            <p>This chatbot is protected to prevent abuse.<br/>Ask Ankit for the passcode, or email him directly.</p>
+            <div class="chat-auth-form">
+              <input
+                class="chat-auth-input"
+                id="chatPasscode"
+                type="password"
+                placeholder="Enter passcode..."
+                maxlength="50"
+                autocomplete="off"
+              />
+              <button class="chat-auth-btn" id="chatAuthBtn">Unlock</button>
+            </div>
+            <div class="chat-auth-error" id="chatAuthError"></div>
+            <p class="chat-auth-hint">Hint: it's something only Ankit would tell you 😄</p>
+          </div>
+
+          <!-- Chat Body (hidden until unlocked) -->
+          <div id="chatBody" style="display:none; flex-direction:column;">
+            <div class="chat-messages" id="chatMessages">
+              <div class="msg bot">
+                <div class="msg-avatar">🤖</div>
+                <div class="msg-bubble">Hey! 👋 I'm Ankit's AI assistant. I know all about his skills, projects, and experience. What would you like to know?</div>
+              </div>
+            </div>
+
+            <div class="chat-suggestions" id="chatSuggestions">
+              <button class="suggestion-btn" onclick="sendSuggestion('What is his tech stack?')">Tech stack?</button>
+              <button class="suggestion-btn" onclick="sendSuggestion('What is he shipping right now at Burger Singh?')">Current work?</button>
+              <button class="suggestion-btn" onclick="sendSuggestion('Is he available for new opportunities?')">Available?</button>
+              <button class="suggestion-btn" onclick="sendSuggestion('Tell me about his Azure Functions experience')">Azure?</button>
+            </div>
+
+            <div class="chat-input-row">
+              <input
+                class="chat-input"
+                id="chatInput"
+                type="text"
+                placeholder="Ask about Ankit..."
+                maxlength="300"
+                disabled
+              />
+              <button class="chat-send" id="chatSend" disabled>➤</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

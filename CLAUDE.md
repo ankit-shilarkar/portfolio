@@ -73,6 +73,26 @@ npx linkinator index.html
   Update this whenever Ankit changes jobs, ships projects, or updates skills
 - All section HTML is in src/components/ — index.html just includes them via fetch
 
+## Agents (`.claude/agents/`)
+| Agent | Purpose |
+|-------|---------|
+| `code-reviewer` | Reviews HTML/CSS/JS for bugs, accessibility, security before commits |
+| `content-updater` | Updates experience, about, chatbot KB when Ankit changes jobs/ships projects |
+| `debugger` | Diagnoses visual, functional, and chatbot issues with exact file+line fixes |
+| `test-writer` | Generates QA checklists for features — visual, chatbot, links, responsive |
+| `refactorer` | Removes duplication, enforces CSS variables, cleans up JS |
+| `doc-writer` | Keeps README, CLAUDE.md, and inline comments in sync with code |
+| `security-auditor` | Audits for XSS, API key exposure, auth weaknesses, unsafe deps |
+
+## Commands (`.claude/commands/`)
+| Command | Usage |
+|---------|-------|
+| `/update-experience` | `/update-experience "Company" "Role" "Date" "Description"` |
+| `/add-project` | `/add-project "Name" "real\|demo" "stack" "desc" "github-url"` |
+| `/update-chatbot-kb` | `/update-chatbot-kb "topic" "new info"` |
+| `/deploy` | `/deploy "optional commit message"` |
+| `/pr-review` | `/pr-review "branch-name or PR description"` |
+
 ## Chatbot Architecture (Current — RAG Simulation)
 The chatbot uses a hand-crafted knowledge base (ANKIT_CONTEXT in chat.js).
 This simulates RAG by pre-loading the most relevant context about Ankit.

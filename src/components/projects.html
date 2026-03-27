@@ -1,0 +1,115 @@
+<section id="projects" class="section-full" style="padding:100px 5%;background:var(--bg2);border-top:1px solid var(--border);">
+  <div class="section-inner">
+    <div class="sec-tag">Projects</div>
+    <h2 class="section-title">Code that does<br/><em>real things.</em></h2>
+
+    <div class="proj-grid">
+
+      <!-- TaskFlow -->
+      <div class="proj-card c-o">
+        <div class="proj-type-row">
+          <span class="proj-type">Full Stack · Spring Boot + React</span>
+          <span class="proj-demo">Demo</span>
+        </div>
+        <div class="proj-name">TaskFlow — Project Management API</div>
+        <div class="proj-desc">
+          Full-stack task manager with JWT auth, team workspaces, CRUD + pagination,
+          role-based access control, and a React dashboard. Deployed on AWS via Docker.
+        </div>
+        <div class="proj-tags">
+          <span class="proj-tag">Spring Boot 3</span>
+          <span class="proj-tag">JWT</span>
+          <span class="proj-tag">PostgreSQL</span>
+          <span class="proj-tag">React</span>
+          <span class="proj-tag">Docker</span>
+          <span class="proj-tag">AWS EC2</span>
+        </div>
+        <ul class="proj-bullets">
+          <li>RBAC: ADMIN / MEMBER / VIEWER roles</li>
+          <li>Global exception handling + structured error responses</li>
+          <li>85%+ test coverage via JUnit + Mockito</li>
+          <li>Deployed — not localhost</li>
+        </ul>
+      </div>
+
+      <!-- ShopGrid -->
+      <div class="proj-card c-t">
+        <div class="proj-type-row">
+          <span class="proj-type">Microservices · Kafka · Docker</span>
+          <span class="proj-demo">Demo</span>
+        </div>
+        <div class="proj-name">ShopGrid — E-Commerce Microservices</div>
+        <div class="proj-desc">
+          4-service e-commerce backend: Order, Inventory, Notification, API Gateway.
+          Kafka for async events. Each service has its own DB. Full Docker Compose + K8s manifests.
+        </div>
+        <div class="proj-tags">
+          <span class="proj-tag">Spring Boot</span>
+          <span class="proj-tag">Kafka</span>
+          <span class="proj-tag">Eureka</span>
+          <span class="proj-tag">PostgreSQL</span>
+          <span class="proj-tag">MongoDB</span>
+          <span class="proj-tag">Kubernetes</span>
+        </div>
+        <ul class="proj-bullets">
+          <li>Kafka async order-to-notification flow</li>
+          <li>Eureka + Spring Cloud Gateway</li>
+          <li>Polyglot persistence: Postgres + MongoDB</li>
+        </ul>
+      </div>
+
+      <!-- URL Shortener -->
+      <div class="proj-card c-i">
+        <div class="proj-type-row">
+          <span class="proj-type">System Design · Redis · Rate Limiting</span>
+          <span class="proj-demo">Demo</span>
+        </div>
+        <div class="proj-name">URL Shortener — System Design</div>
+        <div class="proj-desc">
+          Production-grade URL shortener: Base62 encoding, Redis caching for hot URLs,
+          token bucket rate limiting, Kafka analytics stream. Architecture diagram in README.
+        </div>
+        <div class="proj-tags">
+          <span class="proj-tag">Spring Boot</span>
+          <span class="proj-tag">Redis</span>
+          <span class="proj-tag">PostgreSQL</span>
+          <span class="proj-tag">Kafka</span>
+          <span class="proj-tag">Rate Limiting</span>
+          <span class="proj-tag">Docker</span>
+        </div>
+        <ul class="proj-bullets">
+          <li>Redis cache — sub-5ms for hot URLs</li>
+          <li>Token bucket: 100 req/min per IP</li>
+          <li>Factory + Strategy design patterns applied</li>
+        </ul>
+      </div>
+
+      <!-- AutoDeploy -->
+      <div class="proj-card c-r">
+        <div class="proj-type-row">
+          <span class="proj-type">DevOps · GitHub Actions</span>
+          <span class="proj-demo">Demo</span>
+        </div>
+        <div class="proj-name">AutoDeploy — CI/CD Template</div>
+        <div class="proj-desc">
+          Production-ready CI/CD pipeline template for Spring Boot.
+          Build → Test → Docker image → DockerHub → cloud deploy.
+          SonarQube quality gate + Slack alerts on deploy result.
+        </div>
+        <div class="proj-tags">
+          <span class="proj-tag">GitHub Actions</span>
+          <span class="proj-tag">Docker</span>
+          <span class="proj-tag">SonarQube</span>
+          <span class="proj-tag">AWS ECS</span>
+          <span class="proj-tag">Maven</span>
+        </div>
+        <ul class="proj-bullets">
+          <li>Full build-to-deploy in one workflow</li>
+          <li>Quality gate blocks on coverage failure</li>
+          <li>Slack webhook on deploy success / failure</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>

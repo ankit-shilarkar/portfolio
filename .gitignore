@@ -1,0 +1,27 @@
+# Environment & secrets
+.env
+.env.*
+*.local
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node (if using local validators)
+node_modules/
+npm-debug.log*
+
+# Build artifacts (none for static site)
+dist/
+build/
+
+# Logs
+*.log
+logs/
