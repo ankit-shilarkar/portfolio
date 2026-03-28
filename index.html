@@ -39,6 +39,7 @@
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#learning">Learning</a></li>
       <li><a href="#chat">Ask AI</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -57,15 +58,15 @@
         Open to new opportunities
       </div>
       <h1>
-        Backend<br/>
-        <span class="serif color-o">Engineer.</span><br/>
-        <span class="color-t">Full Stack</span> thinker.
+        Building Scalable<br/>
+        <span class="serif color-o">APIs</span> &amp; Data<br/>
+        <span class="color-t">Systems.</span>
       </h1>
       <p class="hero-sub">
-        <strong>Java · Spring Boot · Azure · React Native.</strong>
-        Currently at <strong>Burger Singh</strong>, previously at Netlink America.
-        Building everything from serverless Azure Functions to cloud telephony apps.
-        I learn fast, ship clean, and don't break prod.
+        <strong>Backend Engineer</strong> specialising in Java, Spring Boot &amp; Microservices.
+        2+ years shipping production APIs, serverless functions, and cloud-native systems
+        at <strong>Burger Singh</strong> and Netlink America.
+        I learn fast, own outcomes, and don't break prod.
       </p>
       <div class="hero-actions">
         <a href="#projects" class="btn-primary">See my work →</a>
@@ -440,6 +441,7 @@
             <li>85%+ test coverage — JUnit + Mockito</li>
             <li>Deployed — not localhost</li>
           </ul>
+          <a href="https://github.com/ankit-shilarkar" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:12px;color:var(--text2);border:1px solid var(--border);border-radius:6px;padding:5px 12px;text-decoration:none;transition:all 0.15s;" onmouseover="this.style.borderColor='var(--orange)';this.style.color='var(--orange)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">⌥ View on GitHub</a>
         </div>
 
         <div class="proj-card c-t">
@@ -454,6 +456,7 @@
             <li>Eureka + Spring Cloud Gateway</li>
             <li>Polyglot: Postgres + MongoDB</li>
           </ul>
+          <a href="https://github.com/ankit-shilarkar" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:12px;color:var(--text2);border:1px solid var(--border);border-radius:6px;padding:5px 12px;text-decoration:none;transition:all 0.15s;" onmouseover="this.style.borderColor='var(--teal)';this.style.color='var(--teal)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">⌥ View on GitHub</a>
         </div>
 
         <div class="proj-card c-i">
@@ -468,6 +471,7 @@
             <li>Token bucket: 100 req/min per IP</li>
             <li>Factory + Strategy patterns</li>
           </ul>
+          <a href="https://github.com/ankit-shilarkar" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:12px;color:var(--text2);border:1px solid var(--border);border-radius:6px;padding:5px 12px;text-decoration:none;transition:all 0.15s;" onmouseover="this.style.borderColor='var(--indigo)';this.style.color='var(--indigo)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">⌥ View on GitHub</a>
         </div>
 
         <div class="proj-card c-r">
@@ -482,9 +486,108 @@
             <li>Quality gate blocks on coverage fail</li>
             <li>Slack webhook on deploy result</li>
           </ul>
+          <a href="https://github.com/ankit-shilarkar" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:12px;color:var(--text2);border:1px solid var(--border);border-radius:6px;padding:5px 12px;text-decoration:none;transition:all 0.15s;" onmouseover="this.style.borderColor='var(--rose)';this.style.color='var(--rose)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">⌥ View on GitHub</a>
+        </div>
+
+        <!-- AI DOCUMENT PROCESSING PROJECT -->
+        <div class="proj-card c-o" style="grid-column: span 2;">
+          <div class="proj-type-row"><span class="proj-type">AI · Spring Boot · LLM Integration</span><span class="proj-demo">Demo</span></div>
+          <div class="proj-name">DocMind — AI Document Processing System</div>
+          <div class="proj-desc">
+            <strong>Problem:</strong> Enterprises drown in unstructured documents — invoices, contracts, reports — that require manual extraction and classification.<br/>
+            <strong>Approach:</strong> Upload any PDF/image → extract text (Apache Tika/Tesseract OCR) → classify document type → extract structured fields via LLM → store in PostgreSQL → queryable REST API.<br/>
+            <strong>Outcome:</strong> Reduces manual document processing time by ~80%. Handles 500+ documents/hour via async Kafka pipeline.
+          </div>
+          <div class="proj-tags">
+            <span class="proj-tag">Spring Boot</span><span class="proj-tag">Claude API</span><span class="proj-tag">Apache Tika</span><span class="proj-tag">Kafka</span><span class="proj-tag">PostgreSQL</span><span class="proj-tag">Redis</span><span class="proj-tag">Docker</span><span class="proj-tag">OCR</span>
+          </div>
+          <ul class="proj-bullets">
+            <li><strong>Problem:</strong> Manual document classification takes hours — this does it in seconds via LLM + OCR pipeline</li>
+            <li><strong>Tech:</strong> Kafka async processing → Tika text extraction → Claude API for field extraction → PostgreSQL structured storage</li>
+            <li><strong>Scale:</strong> Redis caching for duplicate document detection, rate-limited LLM calls to control API costs</li>
+            <li><strong>Auth:</strong> JWT-secured API with per-tenant document isolation and audit logging</li>
+          </ul>
+          <a href="https://github.com/ankit-shilarkar" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:12px;color:var(--text2);border:1px solid var(--border);border-radius:6px;padding:5px 12px;text-decoration:none;transition:all 0.15s;" onmouseover="this.style.borderColor='var(--orange)';this.style.color='var(--orange)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">⌥ View on GitHub</a>
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ── WHAT I'M LEARNING ── -->
+  <section id="learning" class="section">
+    <div class="sec-tag">Growth</div>
+    <h2 class="section-title">What I'm learning<br/><em>right now.</em></h2>
+    <p style="color:var(--text2);max-width:560px;margin-bottom:48px;font-size:15px;">
+      Good engineers ship. Great engineers keep learning. Here's what I'm actively studying — not just listing on a resume.
+    </p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
+
+      <div style="background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--orange);border-radius:var(--radius);padding:24px;">
+        <div style="font-size:24px;margin-bottom:12px;">🏗️</div>
+        <div style="font-family:var(--font-display);font-weight:800;font-size:16px;color:var(--text);margin-bottom:8px;">System Design</div>
+        <p style="font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:12px;">
+          Studying how to design large-scale distributed systems — load balancers, consistent hashing, CAP theorem, database sharding, and real-world trade-offs.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          <span style="font-size:11px;padding:3px 9px;border-radius:5px;background:rgba(232,98,42,0.09);color:var(--orange);border:1px solid rgba(232,98,42,0.2);">HLD / LLD</span>
+          <span style="font-size:11px;padding:3px 9px;border-radius:5px;background:rgba(232,98,42,0.09);color:var(--orange);border:1px solid rgba(232,98,42,0.2);">CAP Theorem</span>
+          <span style="font-size:11px;padding:3px 9px;border-radius:5px;background:rgba(232,98,42,0.09);color:var(--orange);border:1px solid rgba(232,98,42,0.2);">Sharding</span>
+        </div>
+      </div>
+
+      <div style="background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);border-radius:var(--radius);padding:24px;">
+        <div style="font-size:24px;margin-bottom:12px;">⚡</div>
+        <div style="font-family:var(--font-display);font-weight:800;font-size:16px;color:var(--text);margin-bottom:8px;">Kafka &amp; Event-Driven Architecture</div>
+        <p style="font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:12px;">
+          Going deeper on Kafka internals — partitions, consumer groups, exactly-once semantics, and building reliable async pipelines for distributed systems.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          <span style="font-size:11px;padding:3px 9px;border-radius:5px;background:rgba(42,184,160,0.09);color:var(--teal);border:1px solid rgba(42,184,160,0.2);">Kafka</span>
+          <span style="font-size:11px;padding:3px 9px;border-radius:5px;background:rgba(42,184,160,0.09);color:var(--teal);border:1px solid rgba(42,184,160,0.2);">Event Sourcing</span>
+          <span style="font-size:11px;padding:3px 9px;border-radius:5px;background:rgba(42,184,160,0.09);color:var(--teal);border:1px solid rgba(42,184,160,0.2);">CQRS</span>
+        </div>
+      </div>
+
+      <div style="background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--indigo);border-radius:var(--radius);padding:24px;">
+        <div style="font-size:24px;margin-bottom:12px;">🗄️</div>
+        <div style="font-family:var(--font-display);font-weight:800;font-size:16px;color:var(--text);margin-bottom:8px;">Redis &amp; Caching Strategies</div>
+        <p style="font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:12px;">
+          Learning caching patterns — cache-aside, write-through, TTL strategies, Redis data structures, and distributed locking for high-throughput APIs.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          <span style="font-size:11px;padding:3px 9px;border-radius:5px;background:rgba(74,95,196,0.09);color:var(--indigo);border:1px solid rgba(74,95,196,0.2);">Redis</span>
+          <span style="font-size:11px;padding:3px 9px;border-radius:5px;background:rgba(74,95,196,0.09);color:var(--indigo);border:1px solid rgba(74,95,196,0.2);">Cache-aside</span>
+          <span style="font-size:11px;padding:3px 9px;border-radius:5px;background:rgba(74,95,196,0.09);color:var(--indigo);border:1px solid rgba(74,95,196,0.2);">Dist. Locking</span>
+        </div>
+      </div>
+
+      <div style="background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--yellow);border-radius:var(--radius);padding:24px;">
+        <div style="font-size:24px;margin-bottom:12px;">🧩</div>
+        <div style="font-family:var(--font-display);font-weight:800;font-size:16px;color:var(--text);margin-bottom:8px;">Distributed Systems</div>
+        <p style="font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:12px;">
+          Studying consensus algorithms (Raft, Paxos), distributed transactions, saga patterns, and failure recovery strategies for systems that can't go down.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          <span style="font-size:11px;padding:3px 9px;border-radius:5px;background:rgba(242,178,39,0.09);color:var(--yellow);border:1px solid rgba(242,178,39,0.2);">Raft / Paxos</span>
+          <span style="font-size:11px;padding:3px 9px;border-radius:5px;background:rgba(242,178,39,0.09);color:var(--yellow);border:1px solid rgba(242,178,39,0.2);">Saga Pattern</span>
+          <span style="font-size:11px;padding:3px 9px;border-radius:5px;background:rgba(242,178,39,0.09);color:var(--yellow);border:1px solid rgba(242,178,39,0.2);">2PC</span>
+        </div>
+      </div>
+
+      <div style="background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--rose);border-radius:var(--radius);padding:24px;">
+        <div style="font-size:24px;margin-bottom:12px;">🧠</div>
+        <div style="font-family:var(--font-display);font-weight:800;font-size:16px;color:var(--text);margin-bottom:8px;">DSA &amp; Problem Solving</div>
+        <p style="font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:12px;">
+          Practising data structures and algorithms on LeetCode — graphs, dynamic programming, trees, and sliding window problems to sharpen interview readiness.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          <span style="font-size:11px;padding:3px 9px;border-radius:5px;background:rgba(217,79,122,0.09);color:var(--rose);border:1px solid rgba(217,79,122,0.2);">LeetCode</span>
+          <span style="font-size:11px;padding:3px 9px;border-radius:5px;background:rgba(217,79,122,0.09);color:var(--rose);border:1px solid rgba(217,79,122,0.2);">Graphs / DP</span>
+          <span style="font-size:11px;padding:3px 9px;border-radius:5px;background:rgba(217,79,122,0.09);color:var(--rose);border:1px solid rgba(217,79,122,0.2);">Trees</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -593,7 +696,7 @@
           </a>
           <a href="https://www.linkedin.com/in/ankit-shilarkar2504/" target="_blank" rel="noopener noreferrer" class="clink">
             <div class="clink-icon ci-b" style="font-size:14px;font-weight:800;color:var(--indigo);">in</div>
-            <div><div class="clink-label">LinkedIn</div><div class="clink-val">/in/ankit-shilarkar2504</div></div>
+            <div><div class="clink-label">LinkedIn</div><div class="clink-val">https://www.linkedin.com/in/ankit-shilarkar2504/</div></div>
           </a>
           <a href="https://github.com/ankit-shilarkar" target="_blank" rel="noopener noreferrer" class="clink">
             <div class="clink-icon ci-g">⌥</div>

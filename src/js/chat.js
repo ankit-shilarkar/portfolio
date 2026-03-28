@@ -196,7 +196,25 @@ Follows Agile/Scrum workflows, participates in sprint planning and retrospective
 Strong at root-cause analysis, log-based debugging, and production incident resolution.`
   },
   {
-    id: 'iota-internship',
+    id: 'docmind-project',
+    tags: ['docmind', 'ai', 'document', 'ocr', 'tika', 'llm', 'processing', 'invoice', 'pdf', 'extraction'],
+    text: `Ankit built DocMind — an AI Document Processing System (demo project).
+Problem: Enterprises spend hours manually extracting data from unstructured PDFs, invoices, contracts.
+Approach: Upload PDF/image → OCR text extraction (Apache Tika/Tesseract) → LLM classification + field extraction (Claude API) → structured storage in PostgreSQL → queryable REST API.
+Tech stack: Spring Boot, Claude API, Apache Tika, Kafka (async pipeline), PostgreSQL, Redis (duplicate detection), Docker, JWT auth.
+Outcome: Reduces document processing time ~80%. Handles 500+ documents/hour via Kafka async pipeline.
+GitHub: https://github.com/ankit-shilarkar`
+  },
+  {
+    id: 'learning',
+    tags: ['learning', 'studying', 'growing', 'improving', 'leetcode', 'dsa', 'system design', 'kafka', 'redis', 'distributed'],
+    text: `Ankit is actively learning and improving in these areas:
+1. System Design: HLD/LLD, CAP theorem, database sharding, load balancing, consistent hashing.
+2. Kafka & Event-Driven Architecture: Kafka internals, partitions, consumer groups, exactly-once semantics, CQRS, event sourcing.
+3. Redis & Caching: Cache-aside, write-through, TTL strategies, Redis data structures, distributed locking.
+4. Distributed Systems: Raft/Paxos consensus algorithms, saga patterns, 2PC, distributed transactions, failure recovery.
+5. DSA & Problem Solving: LeetCode practice — graphs, dynamic programming, trees, sliding window problems.`
+  },
     tags: ['iota', 'internship', 'intern', 'laravel', 'vue', 'vue.js', 'real estate', 'edtech', 'first job', '2023', '2024'],
     text: `Ankit's first role was a Software Engineering Internship at IOTA Informatics (June 2023 – April 2024).
 Projects:
