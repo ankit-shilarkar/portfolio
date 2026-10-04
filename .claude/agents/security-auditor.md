@@ -27,8 +27,8 @@ Run a full audit when invoked. Report as CRITICAL / HIGH / MEDIUM / LOW.
 - No `eval()`, `Function()`, `setTimeout(string)`, or `document.write()`
 
 ## 3. Auth Gate (MEDIUM)
-- Verify passcode is hashed with SHA-256 before comparison (never plaintext compare)
-- Check that `PASSCODE_HASH` constant is NOT the default dev hash
+- Verify `src/js/chat-config.js` still holds the `__GEMINI_API_KEY__` placeholder (no real key committed)
+- Verify the per-visit question cap is in place and the deployed key is referrer-restricted
   (default: `b3c67f9a5d8e...` — flag if unchanged)
 - Note: client-side auth is security theater against a determined attacker
   (they can read the JS). It's rate-limiting and UX friction only.
@@ -51,7 +51,7 @@ Run a full audit when invoked. Report as CRITICAL / HIGH / MEDIUM / LOW.
              script-src 'self' 'unsafe-inline';
              style-src 'self' fonts.googleapis.com 'unsafe-inline';
              font-src fonts.gstatic.com;
-             connect-src api.anthropic.com;
+             connect-src generativelanguage.googleapis.com;
              img-src 'self' data:;">
   ```
 

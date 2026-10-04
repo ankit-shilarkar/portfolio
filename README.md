@@ -13,23 +13,18 @@ portfolio/
 ├── index.html                    ← Entry point
 ├── src/
 │   ├── css/
-│   │   ├── base.css              ← Variables, reset, typography, buttons
-│   │   ├── layout.css            ← Nav, hero, sections, grids, footer
-│   │   ├── components.css        ← Cards, timeline, skills, contact
+│   │   ├── base.css              ← Tokens, reset, grid-paper ground, buttons
+│   │   ├── layout.css            ← Pad header, sheets, grids, footer, breakpoints
+│   │   ├── components.css        ← Problem sheet, work log, systems, toolkit, contact
 │   │   └── chat.css              ← Chatbot widget
-│   ├── js/
-│   │   ├── theme.js              ← Dark/light mode toggle
-│   │   ├── chat.js               ← AI chatbot + RAG knowledge base
-│   │   └── animations.js         ← Scroll reveals, nav effects
-│   └── components/               ← Section HTML partials (reference)
-│       ├── nav.html
-│       ├── hero.html
-│       ├── about.html
-│       ├── experience.html
-│       ├── skills.html
-│       ├── projects.html
-│       ├── chat.html
-│       └── contact.html
+│   └── js/
+│       ├── theme.js              ← Day/night pad toggle
+│       ├── knowledge.js          ← Chatbot knowledge base (edit to "train" it)
+│       ├── chat-config.js        ← Chatbot settings (key injected at deploy)
+│       ├── chat.js               ← Retrieval + Gemini + notes-mode fallback
+│       └── animations.js         ← Pencil-drawing intro, nav state
+├── PRODUCT.md                    ← Product truth (impeccable)
+├── DESIGN.md                     ← Visual system (impeccable)
 ├── .claude/
 │   ├── agents/
 │   │   ├── code-reviewer.md      ← Reviews HTML/CSS/JS before commits
@@ -91,27 +86,25 @@ git push origin main
 
 ## 🤖 Chatbot
 
-The chatbot uses **Claude (Anthropic API) + simulated RAG**:
+The "Ask about Ankit" assistant uses **retrieval + Google Gemini (free tier)**:
 
-1. Your query is scored against labeled knowledge chunks about Ankit
-2. Top-k matching chunks are injected as context into Claude's system prompt
-3. Claude answers grounded in that context
+1. The question is scored against labeled knowledge chunks in `src/js/knowledge.js`
+2. The top 3 chunks become Gemini's system instruction
+3. Gemini answers grounded in those notes. With no key, quota hit or an error, it answers straight from the notes ("notes mode")
 
-### Update knowledge base:
-Edit `KNOWLEDGE_CHUNKS` in `src/js/chat.js` — add/update chunks when Ankit ships new projects or changes roles.
+### Turn on Gemini (one time):
+1. Create a free key at https://aistudio.google.com/apikey
+2. In Google Cloud Console → Credentials, restrict it to the **Generative Language API** and the referrer `https://ankit-shilarkar.github.io/*`
+3. GitHub repo → Settings → Secrets and variables → Actions → New secret `GEMINI_API_KEY`
+4. Push to `main` — the deploy job writes the key into the deployed `chat-config.js`. Never commit it.
 
-### Change passcode:
-```js
-// In browser console, generate new hash:
-crypto.subtle.digest('SHA-256', new TextEncoder().encode('YOUR_NEW_PASSCODE'))
-  .then(b => console.log(Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,'0')).join('')))
-// Paste result into PASSCODE_HASH in src/js/chat.js
-```
+### Teach it something new:
+Add or edit a chunk in `src/js/knowledge.js` (`id`, `tags`, `text`), commit and push. Facts only.
 
 ### Upgrade roadmap:
 | Phase | Architecture |
 |-------|-------------|
-| 1 (now) | Keyword scoring → Claude API |
+| 1 (now) | Keyword scoring → Gemini |
 | 2 | Real embeddings → pgvector / Pinecone / Qdrant |
 | 3 | Mamba/SSM when stable → linear-complexity retrieval |
 
@@ -162,13 +155,14 @@ npx linkinator http://localhost:3000
 
 ## 🎨 Design System
 
-| Token | Value |
-|-------|-------|
-| `--orange` | `#E8622A` — Primary accent |
-| `--teal` | `#2AB8A0` — Live/active states |
-| `--indigo` | `#4A5FC4` — Azure/cloud |
-| `--yellow` | `#F2B227` — In-progress |
-| `--rose` | `#D94F7A` — New features |
-| Display font | Cabinet Grotesk 900 |
-| Italic accent | Instrument Serif 400 italic |
-| Body | DM Sans 400/500 |
+"The Computation Pad": the site is a worked engineering problem on green grid paper —
+GIVEN → FIND → SOLUTION, then numbered sheets. Full tokens and rules in `DESIGN.md`.
+
+| Token | Role |
+|-------|------|
+| `--paper` / `--grid` | Pad ground and 20px grid |
+| `--ink` / `--ink-2` / `--ink-3` | Graphite text levels |
+| `--red` | Red pencil: answers, primary actions, status notes |
+| `--rule` | Margin rule and dividers |
+| Lettering | Archivo (variable width) |
+| Data / labels | JetBrains Mono |

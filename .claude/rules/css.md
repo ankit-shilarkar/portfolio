@@ -7,22 +7,22 @@ paths:
 
 ## Variables — ALWAYS use them
 - Colors: NEVER hardcode hex values outside `base.css :root / [data-theme]` blocks
-  ✅ `color: var(--orange)`
-  ❌ `color: #E8622A`
+  ✅ `color: var(--red)`
+  ❌ `color: #B8321C`
 - Spacing: use rem for vertical rhythm, px for component internals
-- Border radius: use `var(--radius)` (16px) or `var(--radius-sm)` (8px)
-- Transitions: use `var(--transition)` = `0.2s ease`
+- Corners are square (pad world) — no rounded cards
+- Transitions: `0.2s var(--ease-out)`
 
 ## Dark Mode — mandatory
-- Every new color reference must work in BOTH `[data-theme="dark"]` AND `[data-theme="light"]`
+- Every new color reference must work on the day pad (default `:root`) AND the night pad (`:root[data-theme="dark"]`)
 - Mental test: if background were near-black, would the text still be readable?
 - Test every new component by toggling the theme button
 
 ## File Ownership
-- `base.css` — variables, reset, typography, buttons, chips, badges, keyframes
-- `layout.css` — nav, hero, section grids, footer, responsive breakpoints
-- `components.css` — cards, timeline, skills, contact, chat info
-- `chat.css` — chat widget only (messages, input, auth gate, typing indicator)
+- `base.css` — tokens, reset, grid-paper ground, buttons, utilities
+- `layout.css` — pad header, sheets, grids, footer, ALL breakpoints
+- `components.css` — GIVEN/FIND/SOLUTION, figures, work log, systems, toolkit, contact, signature motion
+- `chat.css` — Q & A widget only
 - Do NOT add layout rules to components.css or vice versa
 
 ## Selectors
@@ -33,7 +33,7 @@ paths:
 ## Responsive
 - Mobile-first: base styles for mobile, `@media (min-width: 768px)` for desktop
 - Breakpoints live in `layout.css` — don't scatter them across files
-- Test grid collapsing: `.about-grid`, `.tl-item`, `.chatbot-grid` must single-column on mobile
+- Test grid collapsing: `.problem-grid`, `.log-co`, `.sys-grid`, `.ask-grid`, `.contact-grid` must single-column on mobile
 
 ## Performance
 - Avoid `filter: blur()` on animating elements (causes repaint)

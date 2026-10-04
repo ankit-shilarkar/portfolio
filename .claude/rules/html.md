@@ -1,7 +1,6 @@
 ---
 paths:
   - "*.html"
-  - "src/components/*.html"
 ---
 
 # HTML Rules
@@ -28,9 +27,8 @@ paths:
 ## Inline Styles
 - Avoid inline `style=""` except for:
   - One-off layout overrides (e.g. max-width on a single section)
-  - Dynamic border-left-color on timeline items (color variants)
-- Never inline colors as hex — use CSS variable references: `style="color:var(--orange)"`
+- Never inline colors — use classes backed by CSS variables
 
 ## Components
-- Each section lives in `src/components/[section].html`
-- `index.html` assembles them — do not duplicate markup
+- `index.html` holds all markup: one `<section class="sheet" data-sheet="n">` per section
+- Icons are inline SVG `<symbol>`s referenced with `<use>` — no emoji or Unicode glyph icons

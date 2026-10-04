@@ -3,9 +3,9 @@ name: update-chatbot-kb
 argument-hint: "[topic] [new information to add]"
 ---
 
-Update the chatbot's knowledge base in src/js/chat.js:
+Update the chatbot's knowledge base in src/js/knowledge.js (this is how the bot is "trained"):
 
-1. Read `src/js/chat.js` and examine existing KNOWLEDGE_CHUNKS array.
+1. Read `src/js/knowledge.js` and examine the existing KNOWLEDGE_CHUNKS array.
 
 2. Parse $ARGUMENTS:
    - Topic: which chunk to update or create (e.g. "burger-singh", "new project", "skill")
@@ -21,7 +21,7 @@ Update the chatbot's knowledge base in src/js/chat.js:
      - tags: extract 6-10 relevant keywords from the info
      - text: the provided information, formatted clearly
 
-5. Verify the `retrieveChunks()` function would score this chunk for relevant queries.
+5. Verify `retrieve()` in `src/js/chat.js` would score this chunk for relevant queries (tag hit = 3–4 points, each query word found in the text = 1; a chunk needs ≥ 2 to count).
    - Test: does "burger singh" in query score the burger-singh chunk?
    - Test: does "azure" in query score the azure chunk?
 

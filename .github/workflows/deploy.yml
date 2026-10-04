@@ -64,7 +64,7 @@ jobs:
 
       - name: Verify all JS files exist
         run: |
-          for f in src/js/theme.js src/js/chat.js src/js/animations.js; do
+          for f in src/js/theme.js src/js/knowledge.js src/js/chat-config.js src/js/chat.js src/js/animations.js; do
             [ -f "$f" ] || { echo "::error::Missing: $f"; exit 1; }
           done
           echo "All JS files present ✅"
@@ -86,6 +86,21 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
+
+      # The Gemini key lives only in the GEMINI_API_KEY repository secret.
+      # It is written into the deployed copy of chat-config.js, never committed.
+      # Restrict the key to the Generative Language API and the
+      # https://ankit-shilarkar.github.io/* referrer in Google Cloud Console.
+      - name: Inject chatbot key
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          if [ -n "$GEMINI_API_KEY" ]; then
+            sed -i "s|__GEMINI_API_KEY__|${GEMINI_API_KEY}|" src/js/chat-config.js
+            echo "Chatbot key injected ✅"
+          else
+            echo "::warning::GEMINI_API_KEY secret not set — chatbot runs in notes mode"
+          fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

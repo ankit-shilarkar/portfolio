@@ -20,7 +20,7 @@ When invoked after a change, update the relevant docs:
 ## README.md
 - Structure table: keep in sync with actual file tree (`find . -type f | sort`)
 - Deploy instructions: update if GitHub Actions workflow changes
-- Chatbot section: update passcode-change instructions if hash algo changes
+- Chatbot section: keep the Gemini key setup steps (secret + referrer restriction) accurate
 - Commands table: add new `/commands` as they're created
 - Design system table: add new CSS variables if introduced
 

@@ -25,3 +25,7 @@ build/
 # Logs
 *.log
 logs/
+
+# impeccable review captures (local only)
+.impeccable/review/
+.impeccable/mocks/

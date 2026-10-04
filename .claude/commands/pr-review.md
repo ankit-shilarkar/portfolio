@@ -19,7 +19,7 @@ Review changes before merging to main:
 
 5. Check content accuracy:
    - If `experience.html` changed: verify dates are correct (Burger Singh: Feb 25 2026, Netlink: Apr 2024 – Feb 3 2026)
-   - If `chat.js` changed: verify KNOWLEDGE_CHUNKS covers the new content
+   - If content changed: verify KNOWLEDGE_CHUNKS in `knowledge.js` covers it
    - If links changed: verify URLs are live (GitHub, LinkedIn, email)
 
 6. Summary report:

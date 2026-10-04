@@ -19,7 +19,7 @@ When invoked with a file or section to refactor:
 - Find any `color:`, `background:`, `border:` with hardcoded hex values outside `base.css`
 - Replace with the correct CSS variable from the design system:
   ```
-  #E8622A → var(--orange)
+  #B8321C → var(--red)
   #F2B227 → var(--yellow)
   #2AB8A0 → var(--teal)
   #4A5FC4 → var(--indigo)
@@ -33,7 +33,7 @@ When invoked with a file or section to refactor:
 ## Step 4: JS cleanup
 - Remove any `console.log` statements
 - Ensure all DOM queries are cached (not repeated inside loops)
-- Check `chat.js` KNOWLEDGE_CHUNKS — remove outdated entries, consolidate overlapping ones
+- Check `knowledge.js` KNOWLEDGE_CHUNKS — remove outdated entries, consolidate overlapping ones
 
 ## Step 5: Report
 - List every change made with file + line number

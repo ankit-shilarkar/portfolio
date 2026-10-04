@@ -26,8 +26,8 @@ When invoked, write a test checklist for the feature or section specified.
 
 ### Chatbot
 - [ ] Auth gate shown on first load
-- [ ] Wrong passcode shows error, clears input
-- [ ] Correct passcode unlocks chat, hides auth gate
+- [ ] With no key: header shows "notes mode" and answers come from knowledge.js
+- [ ] With key: header shows "Gemini · grounded"; a 429 falls back to notes
 - [ ] Unlock persists across page reload (localStorage)
 - [ ] Suggestion buttons send correct messages
 - [ ] Typing indicator appears while waiting
@@ -50,7 +50,7 @@ When invoked, write a test checklist for the feature or section specified.
 - [ ] Contact grid collapses on mobile
 
 ### Performance
-- [ ] Fonts loaded (Cabinet Grotesk visible in headings)
+- [ ] Fonts loaded (Archivo visible in headings, JetBrains Mono in tags)
 - [ ] Hero blob animation smooth (no jank)
 - [ ] Marquee scrolls continuously without gaps
 - [ ] Scroll reveal triggers on each section entry

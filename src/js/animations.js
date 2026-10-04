@@ -1,112 +1,78 @@
 /**
- * animations.js — Scroll Reveals + Micro-interactions
- * Uses IntersectionObserver for performance.
+ * animations.js — The worked problem, plus nav state
+ * - Signature moment: Fig. 1 is drawn in pencil, then the answer
+ *   is double-underlined and boxed. Content is visible without JS;
+ *   the drawing only runs when motion is allowed.
+ * - Header: active section link, "Sheet n of 6", scroll shadow.
  * No dependencies — vanilla JS only.
  */
 
 (function () {
   'use strict';
 
-  /* ── SCROLL REVEAL ── */
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const REVEAL_CLASS    = 'reveal';
-  const REVEALED_CLASS  = 'revealed';
+  /* ── SIGNATURE: work the problem ── */
+  function workTheProblem() {
+    const sheet = document.querySelector('.sheet-problem');
+    if (!sheet || reduceMotion || !('getTotalLength' in SVGPathElement.prototype)) return;
 
-  const revealCSS = `
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
+    // only the drawing visible at this breakpoint gets measured
+    const fig = Array.from(sheet.querySelectorAll('.fig-svg')).find((svg) => svg.getBoundingClientRect().width > 0);
+    if (fig) {
+      fig.querySelectorAll('.fig-ink .draw').forEach((path, i) => {
+        path.style.setProperty('--len', Math.ceil(path.getTotalLength()) + 1);
+        path.style.setProperty('--d', (0.15 + i * 0.09) + 's');
+      });
     }
-    .reveal.revealed {
-      opacity: 1;
-      transform: translateY(0);
+    (fig ? fig.querySelectorAll('.fig-text text') : []).forEach((t, i) => {
+      t.style.setProperty('--d', (0.5 + i * 0.06) + 's');
+    });
+
+    // then the answer: double underline, then the red box
+    const late = sheet.querySelectorAll('.draw-late');
+    late.forEach((path, i) => {
+      path.style.setProperty('--len', Math.ceil(path.getTotalLength()) + 1);
+      path.style.setProperty('--d', (1.25 + i * 0.25) + 's');
+    });
+
+    sheet.classList.add('is-drawing');
+  }
+
+  /* ── HEADER STATE ── */
+  function initHeader() {
+    const head    = document.querySelector('.pad-head');
+    const sheetNo = document.getElementById('sheetNo');
+    const links   = document.querySelectorAll('.pad-nav a[href^="#"]');
+    const sheets  = document.querySelectorAll('.sheet[data-sheet]');
+
+    if (head) {
+      const onScroll = () => head.classList.toggle('is-scrolled', window.scrollY > 8);
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
     }
-  `;
 
-  function injectRevealStyles() {
-    const style = document.createElement('style');
-    style.textContent = revealCSS;
-    document.head.appendChild(style);
-  }
+    if (!sheets.length || !('IntersectionObserver' in window)) return;
 
-  function initScrollReveal() {
-    const targets = document.querySelectorAll(
-      '.mini-card, .tl-project, .skill-block, .proj-card, .clink'
-    );
-
-    if (!targets.length) return;
-
-    targets.forEach(el => el.classList.add(REVEAL_CLASS));
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry, i) => {
-          if (entry.isIntersecting) {
-            // Stagger delay based on sibling index
-            const siblings = Array.from(entry.target.parentElement?.children || []);
-            const idx      = siblings.indexOf(entry.target);
-            entry.target.style.transitionDelay = `${Math.min(idx * 60, 300)}ms`;
-            entry.target.classList.add(REVEALED_CLASS);
-            observer.unobserve(entry.target);
-          }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        if (sheetNo) sheetNo.textContent = entry.target.dataset.sheet;
+        links.forEach((link) => {
+          const active = link.getAttribute('href') === '#' + id;
+          link.classList.toggle('is-active', active);
+          if (active) link.setAttribute('aria-current', 'true');
+          else link.removeAttribute('aria-current');
         });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-    );
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
 
-    targets.forEach(el => observer.observe(el));
+    sheets.forEach((s) => observer.observe(s));
   }
-
-  /* ── ACTIVE NAV LINK ── */
-
-  function initActiveNav() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-
-    if (!sections.length || !navLinks.length) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('id');
-            navLinks.forEach(link => {
-              link.style.color = link.getAttribute('href') === `#${id}`
-                ? 'var(--text)'
-                : '';
-            });
-          }
-        });
-      },
-      { threshold: 0.4 }
-    );
-
-    sections.forEach(s => observer.observe(s));
-  }
-
-  /* ── NAV SCROLL SHADOW ── */
-
-  function initNavShadow() {
-    const nav = document.querySelector('nav');
-    if (!nav) return;
-
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 10) {
-        nav.style.boxShadow = '0 1px 16px var(--shadow)';
-      } else {
-        nav.style.boxShadow = '';
-      }
-    }, { passive: true });
-  }
-
-  /* ── INIT ── */
 
   document.addEventListener('DOMContentLoaded', () => {
-    injectRevealStyles();
-    initScrollReveal();
-    initActiveNav();
-    initNavShadow();
+    workTheProblem();
+    initHeader();
   });
-
 })();

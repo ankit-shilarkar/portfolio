@@ -14,26 +14,24 @@ paths:
 
 ## theme.js
 - localStorage key is `'portfolio-theme'` — DO NOT change (breaks saved preferences)
-- Default theme is `'dark'`
+- Default theme follows the OS (`prefers-color-scheme`); explicit choice persists
 - Must run before DOMContentLoaded to prevent flash of wrong theme
-- Icon: dark mode → show ☀️ (to switch to light), light mode → show 🌙 (to switch to dark)
+- Icon: SVG sun/moon swapped by CSS from `data-theme`
 
 ## chat.js
-- `KNOWLEDGE_CHUNKS` is the source of truth for chatbot knowledge
-  - Keep in sync with experience.html and about.html
+- `KNOWLEDGE_CHUNKS` in `knowledge.js` is the source of truth for chatbot knowledge
+  - Keep in sync with index.html
   - Every new project at Burger Singh needs a chunk entry
   - Every new skill cluster needs relevant tags added to existing chunks
-- `PASSCODE_HASH` — CHANGE before going live. Default is for development only.
-  - Never store plaintext passcode in source code
-  - To regenerate hash: see comment in chat.js header
-- `chatHistory` is capped at `MAX_HISTORY` (10) turns — prevents context overflow
+- No passcode gate: quota is protected by a per-visit question cap (`maxQuestionsPerSession`) and a referrer-restricted key
+- History is capped at `maxHistoryTurns` (10) turns — prevents context overflow
 - Never log user messages to console in production
 - `escapeHtml()` MUST be called on all user input before inserting into DOM
-- API calls go to `https://api.anthropic.com/v1/messages` — never commit API keys
+- API calls go to Gemini `generateContent` with the key in the `x-goog-api-key` header — never commit API keys; keep the `__GEMINI_API_KEY__` placeholder
 
 ## animations.js
-- Uses IntersectionObserver — no scroll event listeners (performance)
-- Injects its own `<style>` tag for `.reveal` — keep styles minimal
+- One signature moment (pencil-drawing the problem sheet); no generic scroll reveals
+- Content is visible without JS; motion is skipped under `prefers-reduced-motion`
 - Must be the LAST script loaded (after theme.js and chat.js)
 
 ## Error Handling
@@ -44,4 +42,4 @@ paths:
 ## Security
 - `escapeHtml()` on all user-generated content before DOM insertion
 - No `eval()`, no `innerHTML` with raw user input
-- Auth: passcode is hashed with SHA-256 client-side — never transmitted
+- Model output is escaped before minimal formatting (bold, bullets, https links)

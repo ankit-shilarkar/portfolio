@@ -23,9 +23,9 @@ Step 2: **CSS/Theme bugs**
 
 Step 3: **Chatbot bugs**
   - Check browser console for API errors (CORS, 401, rate limit)
-  - Verify `KNOWLEDGE_CHUNKS` has entries for the topic being asked about
+  - Verify `KNOWLEDGE_CHUNKS` (src/js/knowledge.js) has entries for the topic being asked about
   - Check auth flow: is `localStorage.getItem('chat-unlocked')` set correctly?
-  - Verify passcode hash matches — regenerate if needed
+  - Check `#chatMode`: "notes mode" means no key was injected (GEMINI_API_KEY secret missing)
 
 Step 4: **Layout bugs**
   - Check grid breakpoints in `layout.css`

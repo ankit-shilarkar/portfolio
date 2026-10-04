@@ -6,8 +6,9 @@ Hosted free on GitHub Pages. No build step — plain HTML/CSS/JS.
 
 ## Stack
 - HTML5 + CSS3 + Vanilla JS (no frameworks, no bundler)
-- Cabinet Grotesk + Instrument Serif + DM Sans (Google Fonts)
-- Anthropic Claude API (chatbot — proxied via backend in production)
+- Archivo (variable width) + JetBrains Mono (Google Fonts)
+- Google Gemini API (chatbot — free tier; key injected at deploy time from the `GEMINI_API_KEY` secret)
+- impeccable design context: `PRODUCT.md`, `DESIGN.md`, `.impeccable/`
 - GitHub Pages (hosting)
 
 ## File Structure
@@ -20,19 +21,14 @@ portfolio/
 │   │   ├── layout.css      ← Nav, sections, grid, footer
 │   │   ├── components.css  ← Cards, badges, buttons, pills
 │   │   └── chat.css        ← Chatbot widget styles
-│   ├── js/
-│   │   ├── theme.js        ← Dark/light mode toggle + persistence
-│   │   ├── chat.js         ← Chatbot logic + RAG context + Claude API
-│   │   └── animations.js   ← Scroll reveals, micro-interactions
-│   └── components/
-│       ├── nav.html        ← Navigation markup
-│       ├── hero.html       ← Hero section
-│       ├── about.html      ← About + mini cards
-│       ├── experience.html ← Timeline (Burger Singh + Netlink)
-│       ├── skills.html     ← Skill grid
-│       ├── projects.html   ← Project cards
-│       ├── chat.html       ← Chatbot section + widget
-│       └── contact.html    ← Contact + CTA
+│   └── js/
+│       ├── theme.js        ← Day/night pad toggle + persistence
+│       ├── knowledge.js    ← Chatbot knowledge base (KNOWLEDGE_CHUNKS) — "train" the bot here
+│       ├── chat-config.js  ← Chatbot settings; key placeholder replaced at deploy
+│       ├── chat.js         ← Retrieval + Gemini call + notes-mode fallback
+│       └── animations.js   ← Signature pencil drawing, nav state
+├── PRODUCT.md              ← Product truth (impeccable)
+├── DESIGN.md               ← Visual system (impeccable)
 ├── .claude/
 │   ├── agents/             ← AI specialist agents
 │   ├── commands/           ← Custom slash commands
@@ -66,12 +62,15 @@ npx linkinator index.html
 
 ## Conventions
 - CSS custom properties (variables) for ALL colors and spacing — never hardcode
-- Dark mode is default; light mode is opt-in via [data-theme="light"] on <html>
-- Mobile-first: base styles for mobile, @media (min-width: 768px) for desktop
+- Visual world is "The Computation Pad" (see DESIGN.md): green grid paper, graphite ink,
+  red pencil for answers/actions. No rounded cards, gradients, glows or emoji icons.
+- Theme follows the OS on first visit; choice persists. Night pad = [data-theme="dark"] on <html>
+- Mobile-first: base styles for mobile, @media (min-width: 768px) for desktop; breakpoints live in layout.css
 - No jQuery, no lodash — vanilla JS only
-- Chatbot context lives in src/js/chat.js → ANKIT_CONTEXT constant
+- Chatbot knowledge lives in src/js/knowledge.js → KNOWLEDGE_CHUNKS
   Update this whenever Ankit changes jobs, ships projects, or updates skills
-- All section HTML is in src/components/ — index.html just includes them via fetch
+- index.html is the single source of all section markup (one sheet per section)
+- Personal projects are always labeled Demo; never invent metrics or claims
 
 ## Agents (`.claude/agents/`)
 | Agent | Purpose |
@@ -93,12 +92,17 @@ npx linkinator index.html
 | `/deploy` | `/deploy "optional commit message"` |
 | `/pr-review` | `/pr-review "branch-name or PR description"` |
 
-## Chatbot Architecture (Current — RAG Simulation)
-The chatbot uses a hand-crafted knowledge base (ANKIT_CONTEXT in chat.js).
-This simulates RAG by pre-loading the most relevant context about Ankit.
+## Chatbot Architecture (Current — keyword RAG + Gemini)
+Question → keyword/tag scoring over KNOWLEDGE_CHUNKS (knowledge.js) → top-3 chunks become
+Gemini's system instruction → grounded answer. No key, quota hit or network error → "notes mode"
+shows the best-matching chunk directly. 20 model questions per visit (sessionStorage).
+
+Key setup: repo Settings → Secrets → Actions → `GEMINI_API_KEY`. In Google Cloud Console restrict
+the key to the Generative Language API and the referrer `https://ankit-shilarkar.github.io/*`.
+Never commit the key — CI fails on `AIza…` strings.
 
 ### Planned Upgrade Path:
-1. NOW: Static context string → Claude API (works, no server needed)
+1. NOW: Keyword retrieval → Gemini (works, no server needed)
 2. NEXT: Real RAG — embed context chunks, vector search on query, pass top-k to Claude
    - Embeddings: Anthropic text-embeddings-3 or OpenAI ada-002
    - Vector DB: pgvector (cheapest), Pinecone (easiest), Qdrant (self-hosted)

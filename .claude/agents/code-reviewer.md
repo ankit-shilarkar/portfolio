@@ -22,7 +22,7 @@ Step 3: **CSS audit**
   - No `!important` unless absolutely necessary
 
 Step 4: **JS audit**
-  - `chat.js`: Verify ANKIT_CONTEXT or KNOWLEDGE_CHUNKS is up to date with latest experience
+  - `knowledge.js`: Verify KNOWLEDGE_CHUNKS is up to date with latest experience
   - `theme.js`: localStorage key hasn't changed (would break saved preferences)
   - No `console.log` left in production files
   - All event listeners cleaned up (no duplicates on re-runs)

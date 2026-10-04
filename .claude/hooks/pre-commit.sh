@@ -28,12 +28,11 @@ if [ -n "$HARDCODED" ]; then
   # Warning only — don't block
 fi
 
-# ── 3. Check for default passcode hash ──
-echo "Checking chatbot passcode..."
-DEFAULT_HASH="b3c67f9a5d8e2f1a4c6b9d0e3f7a2c5b8d1e4f7a0c3b6d9e2f5a8c1b4d7e0f3"
-if grep -q "$DEFAULT_HASH" src/js/chat.js 2>/dev/null; then
-  echo "⚠️  WARNING: Default passcode hash still in chat.js. Change before going live!"
-  # Warning only — don't block (useful during development)
+# ── 3. Check the chatbot key placeholder is intact ──
+echo "Checking chatbot key placeholder..."
+if ! grep -q "__GEMINI_API_KEY__" src/js/chat-config.js 2>/dev/null; then
+  echo "❌ BLOCKED: src/js/chat-config.js must keep the __GEMINI_API_KEY__ placeholder (key is injected at deploy)."
+  exit 2
 fi
 
 # ── 4. Check index.html loads all CSS files ──
@@ -48,7 +47,7 @@ echo "✅ All CSS files linked."
 
 # ── 5. Check index.html loads all JS files ──
 echo "Checking JS imports in index.html..."
-for jsfile in theme animations chat; do
+for jsfile in theme knowledge chat-config chat animations; do
   if ! grep -q "src/js/${jsfile}.js" index.html 2>/dev/null; then
     echo "❌ BLOCKED: index.html missing script for src/js/${jsfile}.js"
     exit 2
