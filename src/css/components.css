@@ -385,10 +385,10 @@
 .studying-list strong { color: var(--ink); }
 
 /* ── ASK (explainer column) ── */
-.ask-how p { color: var(--ink-2); max-width: 46ch; margin-bottom: var(--s4); font-size: 17px; }
+.ask-how > p { color: var(--ink-2); max-width: 46ch; margin-bottom: var(--s4); font-size: 17px; }
 .ask-how p strong { color: var(--ink); }
 .ask-how .flow { margin: var(--s5) 0; }
-.ask-fine { font-size: 14px !important; color: var(--ink-3) !important; }
+.ask-how > .ask-fine { font-size: 14px; color: var(--ink-3); }
 
 /* ── CONTACT ── */
 .contact-title {

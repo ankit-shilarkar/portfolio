@@ -1,0 +1,713 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-04T17:52:00+00:00",
+  "title": "Design System: Ankit Shilarkar — Backend Engineer",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Pad Green",
+        "canonical": "oklch(93.9% 0.031 125.2)",
+        "tonalRamp": [
+          "#090D04",
+          "#22271A",
+          "#3F4535",
+          "#5D6453",
+          "#7E8672",
+          "#A1A895",
+          "#C5CCBA",
+          "#EAF2E0"
+        ],
+        "purpose": "Day page ground, flow boxes, chat panel."
+      },
+      "paper-2": {
+        "role": "neutral",
+        "displayName": "Header Strip Green",
+        "canonical": "oklch(91.0% 0.041 126.9)",
+        "tonalRamp": [
+          "#080D02",
+          "#212816",
+          "#3D4631",
+          "#5B664E",
+          "#7C876D",
+          "#9FAA90",
+          "#C3CEB5",
+          "#E9F3DC"
+        ],
+        "purpose": "Day pad header, chat head, scrollbar track."
+      },
+      "paper-3": {
+        "role": "neutral",
+        "displayName": "Deep Pad Green",
+        "canonical": "oklch(88.2% 0.050 127.5)",
+        "tonalRamp": [
+          "#070E01",
+          "#202913",
+          "#3B462D",
+          "#5A664A",
+          "#7A8868",
+          "#9DAB8C",
+          "#C1CFB1",
+          "#E7F4D8"
+        ],
+        "purpose": "Day third surface step."
+      },
+      "margin-rule": {
+        "role": "neutral",
+        "displayName": "Margin Rule Green",
+        "canonical": "oklch(68.3% 0.086 138.0)",
+        "tonalRamp": [
+          "#001000",
+          "#122C08",
+          "#2D4B23",
+          "#4A6C3E",
+          "#698F5C",
+          "#8DB181",
+          "#B2D5A7",
+          "#D9FACE"
+        ],
+        "purpose": "Day margin rule, row rules, link underline at rest."
+      },
+      "graphite": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "oklch(26.8% 0.028 150.8)",
+        "tonalRamp": [
+          "#050E07",
+          "#1D281F",
+          "#39463B",
+          "#57665A",
+          "#77877A",
+          "#9AAA9D",
+          "#BFCEC1",
+          "#E4F3E7"
+        ],
+        "purpose": "Day primary ink and 1.5px structural rules."
+      },
+      "graphite-2": {
+        "role": "neutral",
+        "displayName": "Graphite Soft",
+        "canonical": "oklch(41.8% 0.032 154.9)",
+        "tonalRamp": [
+          "#040E07",
+          "#1B2920",
+          "#37473C",
+          "#54675A",
+          "#74887A",
+          "#97AB9D",
+          "#BCCFC1",
+          "#E2F4E7"
+        ],
+        "purpose": "Day secondary copy."
+      },
+      "graphite-3": {
+        "role": "neutral",
+        "displayName": "Graphite Faint",
+        "canonical": "oklch(47.8% 0.034 152.6)",
+        "tonalRamp": [
+          "#040E06",
+          "#1B291F",
+          "#36473A",
+          "#546759",
+          "#748979",
+          "#97AB9C",
+          "#BCCFC0",
+          "#E2F4E6"
+        ],
+        "purpose": "Day line numbers, fine print, placeholders."
+      },
+      "red-pencil": {
+        "role": "primary",
+        "displayName": "Red Pencil",
+        "canonical": "oklch(52.1% 0.174 32.0)",
+        "tonalRamp": [
+          "#2F0000",
+          "#560000",
+          "#7F0800",
+          "#AA2F1B",
+          "#D65039",
+          "#F97962",
+          "#FFA28A",
+          "#FFCBB4"
+        ],
+        "purpose": "Day answer, primary action, annotations, focus."
+      },
+      "red-pencil-hover": {
+        "role": "primary",
+        "displayName": "Red Pencil Pressed",
+        "canonical": "oklch(46.0% 0.155 32.2)",
+        "tonalRamp": [
+          "#2C0000",
+          "#520000",
+          "#7A1807",
+          "#A33826",
+          "#CE5842",
+          "#F1806A",
+          "#FFA791",
+          "#FFD0BA"
+        ],
+        "purpose": "Day hover on red fills and links."
+      },
+      "on-red": {
+        "role": "neutral",
+        "displayName": "Paper White",
+        "canonical": "oklch(97.8% 0.014 64.3)",
+        "tonalRamp": [
+          "#0E0A07",
+          "#29241F",
+          "#47413B",
+          "#676059",
+          "#89817A",
+          "#ABA39D",
+          "#CFC8C1",
+          "#F4EDE7"
+        ],
+        "purpose": "Day text on red fills."
+      },
+      "night-paper": {
+        "role": "neutral",
+        "displayName": "Night Pad",
+        "canonical": "oklch(22.9% 0.023 160.4)",
+        "tonalRamp": [
+          "#050D09",
+          "#1D2822",
+          "#39453E",
+          "#57655D",
+          "#77877E",
+          "#9AA9A1",
+          "#BFCDC5",
+          "#E5F2EA"
+        ],
+        "purpose": "Night page ground."
+      },
+      "night-paper-2": {
+        "role": "neutral",
+        "displayName": "Night Header Strip",
+        "canonical": "oklch(26.3% 0.028 160.5)",
+        "tonalRamp": [
+          "#040E08",
+          "#1B2921",
+          "#37463E",
+          "#54665C",
+          "#74887D",
+          "#97AAA0",
+          "#BCCEC4",
+          "#E2F3E9"
+        ],
+        "purpose": "Night header and chat head."
+      },
+      "night-paper-3": {
+        "role": "neutral",
+        "displayName": "Night Deep Pad",
+        "canonical": "oklch(30.0% 0.034 157.3)",
+        "tonalRamp": [
+          "#030E07",
+          "#1A2920",
+          "#35473C",
+          "#53675A",
+          "#72897A",
+          "#96AB9D",
+          "#BACFC2",
+          "#E1F4E7"
+        ],
+        "purpose": "Night third surface step."
+      },
+      "night-margin-rule": {
+        "role": "neutral",
+        "displayName": "Night Margin Rule",
+        "canonical": "oklch(48.2% 0.073 150.2)",
+        "tonalRamp": [
+          "#001101",
+          "#0B2D15",
+          "#274B30",
+          "#446C4C",
+          "#628F6B",
+          "#87B28F",
+          "#ADD5B4",
+          "#D4FADA"
+        ],
+        "purpose": "Night margin rule and row rules."
+      },
+      "chalk": {
+        "role": "neutral",
+        "displayName": "Chalk",
+        "canonical": "oklch(93.2% 0.025 129.9)",
+        "tonalRamp": [
+          "#090D05",
+          "#22271D",
+          "#3E4439",
+          "#5D6456",
+          "#7D8576",
+          "#A0A899",
+          "#C5CCBE",
+          "#EAF1E4"
+        ],
+        "purpose": "Night primary ink and structural rules."
+      },
+      "chalk-2": {
+        "role": "neutral",
+        "displayName": "Chalk Soft",
+        "canonical": "oklch(79.6% 0.032 142.3)",
+        "tonalRamp": [
+          "#060E05",
+          "#1E281D",
+          "#3A4638",
+          "#586656",
+          "#788876",
+          "#9BAA99",
+          "#BFCEBE",
+          "#E5F3E4"
+        ],
+        "purpose": "Night secondary copy."
+      },
+      "chalk-3": {
+        "role": "neutral",
+        "displayName": "Chalk Faint",
+        "canonical": "oklch(70.5% 0.036 143.8)",
+        "tonalRamp": [
+          "#050E05",
+          "#1D291C",
+          "#384638",
+          "#566655",
+          "#768875",
+          "#99AB98",
+          "#BECFBD",
+          "#E4F4E3"
+        ],
+        "purpose": "Night line numbers, fine print."
+      },
+      "night-red-pencil": {
+        "role": "primary",
+        "displayName": "Lamp-lit Red Pencil",
+        "canonical": "oklch(73.7% 0.163 34.4)",
+        "tonalRamp": [
+          "#2D0000",
+          "#530000",
+          "#7C1400",
+          "#A6361B",
+          "#D1563A",
+          "#F47E62",
+          "#FFA68B",
+          "#FFCFB4"
+        ],
+        "purpose": "Night answer, primary action, annotations, focus."
+      },
+      "night-red-pencil-hover": {
+        "role": "primary",
+        "displayName": "Lamp-lit Red Pencil Hover",
+        "canonical": "oklch(78.5% 0.127 35.3)",
+        "tonalRamp": [
+          "#270000",
+          "#4B0600",
+          "#712613",
+          "#99442F",
+          "#C2634B",
+          "#E58971",
+          "#FFAF98",
+          "#FFD7C1"
+        ],
+        "purpose": "Night hover on red fills."
+      },
+      "night-on-red": {
+        "role": "neutral",
+        "displayName": "Night Ink on Red",
+        "canonical": "oklch(17.1% 0.029 41.1)",
+        "tonalRamp": [
+          "#130805",
+          "#2F211C",
+          "#4E3E38",
+          "#6F5C56",
+          "#927D75",
+          "#B5A098",
+          "#D8C4BD",
+          "#FDEAE3"
+        ],
+        "purpose": "Night text on red fills."
+      },
+      "grid": {
+        "role": "neutral",
+        "displayName": "Grid Line",
+        "canonical": "rgba(70, 118, 64, 0.13)",
+        "purpose": "Day 20px grid."
+      },
+      "grid-major": {
+        "role": "neutral",
+        "displayName": "Major Grid Line",
+        "canonical": "rgba(70, 118, 64, 0.24)",
+        "purpose": "Day 100px grid, chat ruling, dashed GIVEN separators."
+      },
+      "select": {
+        "role": "neutral",
+        "displayName": "Red Selection",
+        "canonical": "rgba(184, 50, 28, 0.18)",
+        "purpose": "Day text selection."
+      },
+      "shadow": {
+        "role": "neutral",
+        "displayName": "Paper Shadow",
+        "canonical": "rgba(28, 42, 31, 0.16)",
+        "purpose": "Day header scroll shadow."
+      },
+      "night-grid": {
+        "role": "neutral",
+        "displayName": "Night Grid Line",
+        "canonical": "rgba(160, 210, 160, 0.055)",
+        "purpose": "Night 20px grid."
+      },
+      "night-grid-major": {
+        "role": "neutral",
+        "displayName": "Night Major Grid Line",
+        "canonical": "rgba(160, 210, 160, 0.11)",
+        "purpose": "Night 100px grid and ruling."
+      },
+      "night-select": {
+        "role": "neutral",
+        "displayName": "Night Red Selection",
+        "canonical": "rgba(255, 127, 97, 0.28)",
+        "purpose": "Night text selection."
+      },
+      "night-shadow": {
+        "role": "neutral",
+        "displayName": "Night Paper Shadow",
+        "canonical": "rgba(0, 0, 0, 0.45)",
+        "purpose": "Night header scroll shadow."
+      }
+    },
+    "themes": {
+      "mechanism": "Day pad on :root (color-scheme: light); night pad on :root[data-theme=\"dark\"] (color-scheme: dark). theme.js follows prefers-color-scheme on first visit and persists an explicit toggle in localStorage key 'portfolio-theme'.",
+      "cssVarMap": {
+        "--paper": [
+          "paper",
+          "night-paper"
+        ],
+        "--paper-2": [
+          "paper-2",
+          "night-paper-2"
+        ],
+        "--paper-3": [
+          "paper-3",
+          "night-paper-3"
+        ],
+        "--grid": [
+          "grid",
+          "night-grid"
+        ],
+        "--grid-major": [
+          "grid-major",
+          "night-grid-major"
+        ],
+        "--rule": [
+          "margin-rule",
+          "night-margin-rule"
+        ],
+        "--ink": [
+          "graphite",
+          "chalk"
+        ],
+        "--ink-2": [
+          "graphite-2",
+          "chalk-2"
+        ],
+        "--ink-3": [
+          "graphite-3",
+          "chalk-3"
+        ],
+        "--red": [
+          "red-pencil",
+          "night-red-pencil"
+        ],
+        "--red-hover": [
+          "red-pencil-hover",
+          "night-red-pencil-hover"
+        ],
+        "--on-red": [
+          "on-red",
+          "night-on-red"
+        ],
+        "--select": [
+          "select",
+          "night-select"
+        ],
+        "--shadow": [
+          "shadow",
+          "night-shadow"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The SOLUTION name, double-underlined; contact headline uses the same voice at clamp(38px, 6.5vw, 76px), wdth 80."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Sheet title-block subject lines."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Company names in the work log."
+      },
+      "title-sm": {
+        "displayName": "Title small",
+        "purpose": "Demo system names."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading copy; measures 38–70ch per element."
+      },
+      "body-lead": {
+        "displayName": "Body lead",
+        "purpose": "Lead paragraphs, answer line, ask explainer."
+      },
+      "label-caps": {
+        "displayName": "Label caps",
+        "purpose": "Toolkit row heads, Problem/Approach/Outcome, chat title (uppercase, wide)."
+      },
+      "data": {
+        "displayName": "Data (mono)",
+        "purpose": "Line numbers, dates, tags, flow boxes, stamps, sheet numbers, title-block cells, figure labels."
+      }
+    },
+    "shadows": [
+      {
+        "name": "header-lift",
+        "value": "0 6px 18px -10px var(--shadow)",
+        "purpose": "Sticky pad header once scrolled past 8px. The only shadow in the system."
+      },
+      {
+        "name": "focus-ring",
+        "value": "outline: 2px solid var(--red); outline-offset: 3px",
+        "purpose": "Global :focus-visible."
+      },
+      {
+        "name": "form-focus",
+        "value": "inset 0 0 0 2px var(--red)",
+        "purpose": "Chat form :focus-within."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Every transition and the pencil drawing."
+      },
+      {
+        "name": "state-transition",
+        "value": "0.2s var(--ease-out)",
+        "purpose": "Color, border and transform changes on buttons, links, chips."
+      },
+      {
+        "name": "header-shadow",
+        "value": "box-shadow 0.3s var(--ease-out)",
+        "purpose": "Header lift on scroll."
+      },
+      {
+        "name": "pencil-draw",
+        "value": "stroke-dashoffset to 0 over 0.9s, 0.15s + 0.09s stagger",
+        "purpose": "Fig. 1 strokes draw on first load."
+      },
+      {
+        "name": "pencil-answer",
+        "value": "0.8s, delayed from 1.25s with 0.25s stagger",
+        "purpose": "Double underline then answer box drawn after the figure."
+      },
+      {
+        "name": "ink-in",
+        "value": "opacity 0 to 1 over 0.5–0.6s",
+        "purpose": "Figure labels and dashed boundary appear."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation: none; transition: none; scroll-behavior: auto",
+        "purpose": "prefers-reduced-motion: reduce disables all motion; content is visible without JS."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "xs-max",
+        "value": "359px",
+        "purpose": "Hide header role line and header Email button."
+      },
+      {
+        "name": "sm",
+        "value": "560px",
+        "purpose": "Title blocks side by side; answer actions stop wrapping."
+      },
+      {
+        "name": "md",
+        "value": "768px",
+        "purpose": "Desktop: margin 72px, gutter 40px, header 60px, 12-column problem grid, margin notes, wide Fig. 1."
+      },
+      {
+        "name": "lg",
+        "value": "1100px",
+        "purpose": "Wider problem-grid gutter; wider P/A/O term column."
+      },
+      {
+        "name": "xl",
+        "value": "1280px",
+        "purpose": "PROJECT / BY / DATE title-block cells in the header."
+      }
+    ],
+    "grid": {
+      "square": "20px",
+      "major": "100px (every 5 squares)",
+      "marginRuleOffset": "margin - 8px",
+      "chatRuling": "28px"
+    },
+    "icons": {
+      "system": "Inline SVG <symbol> sprite, 24px viewBox, used via <use>",
+      "style": "fill none, stroke currentColor 1.75, round caps and joins, 1.1em",
+      "set": [
+        "arrow",
+        "out",
+        "mail",
+        "sun",
+        "moon",
+        "send"
+      ]
+    }
+  },
+  "components": [
+    {
+      "name": "Red Pencil Button",
+      "kind": "button",
+      "refersTo": "button-red",
+      "description": "The primary action (Email me). One per view region.",
+      "html": "<a class=\"ds-btn ds-btn-red\" href=\"#\"><svg class=\"ds-ico\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"1\"/><path d=\"m3 7 9 6 9-6\"/></svg> Email me</a>",
+      "css": ":host{--paper:#E6EFD9;--paper-2:#DAE7CA;--rule:#7FA672;--ink:#1C2A1F;--ink-2:#3F5245;--ink-3:#4F6354;--red:#B8321C;--red-hover:#9C2814;--on-red:#FFF6EE;--grid-major:rgba(70,118,64,0.24);--font-letter:'Archivo','Arial Narrow',sans-serif;--font-data:'JetBrains Mono',ui-monospace,Menlo,monospace;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-ico{width:1.1em;height:1.1em;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none;} .ds-btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;font-family:var(--font-letter);font-size:15px;font-weight:650;font-variation-settings:'wdth' 106;text-decoration:none;border:1.5px solid transparent;border-radius:0;cursor:pointer;transition:background-color .2s var(--ease-out),color .2s var(--ease-out),transform .2s var(--ease-out);} .ds-btn:active{transform:translateY(1px);} .ds-btn:focus-visible{outline:2px solid var(--red);outline-offset:3px;} .ds-btn-red{background:var(--red);color:var(--on-red);} .ds-btn-red:hover{background:var(--red-hover);}"
+    },
+    {
+      "name": "Line Button",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Secondary actions (GitHub, LinkedIn); inverts to graphite on hover.",
+      "html": "<a class=\"ds-btn ds-btn-line\" href=\"#\">GitHub <svg class=\"ds-ico\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M7 17 17 7M8 7h9v9\"/></svg></a>",
+      "css": ":host{--paper:#E6EFD9;--paper-2:#DAE7CA;--rule:#7FA672;--ink:#1C2A1F;--ink-2:#3F5245;--ink-3:#4F6354;--red:#B8321C;--red-hover:#9C2814;--on-red:#FFF6EE;--grid-major:rgba(70,118,64,0.24);--font-letter:'Archivo','Arial Narrow',sans-serif;--font-data:'JetBrains Mono',ui-monospace,Menlo,monospace;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-ico{width:1.1em;height:1.1em;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none;} .ds-btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;font-family:var(--font-letter);font-size:15px;font-weight:650;font-variation-settings:'wdth' 106;text-decoration:none;border:1.5px solid transparent;border-radius:0;cursor:pointer;transition:background-color .2s var(--ease-out),color .2s var(--ease-out),transform .2s var(--ease-out);} .ds-btn:active{transform:translateY(1px);} .ds-btn:focus-visible{outline:2px solid var(--red);outline-offset:3px;} .ds-btn-line{border-color:var(--ink);color:var(--ink);background:transparent;} .ds-btn-line:hover{background:var(--ink);color:var(--paper);}"
+    },
+    {
+      "name": "Pad Header Nav",
+      "kind": "nav",
+      "refersTo": "pad-header",
+      "description": "Sticky header strip: name, section links with red active underline, sheet counter.",
+      "html": "<header class=\"ds-head\"><a class=\"ds-name\" href=\"#\"><b>Ankit Shilarkar</b><span>Backend engineering</span></a><nav class=\"ds-nav\"><a href=\"#\">Work</a><a href=\"#\" class=\"is-active\">Systems</a><a href=\"#\">Toolkit</a><a href=\"#\">Contact</a></nav><span class=\"ds-sheet\">Sheet <b>3</b> of 6</span></header>",
+      "css": ":host{--paper:#E6EFD9;--paper-2:#DAE7CA;--rule:#7FA672;--ink:#1C2A1F;--ink-2:#3F5245;--ink-3:#4F6354;--red:#B8321C;--red-hover:#9C2814;--on-red:#FFF6EE;--grid-major:rgba(70,118,64,0.24);--font-letter:'Archivo','Arial Narrow',sans-serif;--font-data:'JetBrains Mono',ui-monospace,Menlo,monospace;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-head{display:flex;align-items:stretch;gap:24px;min-height:60px;padding:0 16px;background:var(--paper-2);border-bottom:1.5px solid var(--ink);font-family:var(--font-letter);color:var(--ink);} .ds-name{display:flex;flex-direction:column;justify-content:center;text-decoration:none;color:inherit;line-height:1.15;} .ds-name b{font-weight:800;font-size:17px;font-variation-settings:'wdth' 112;} .ds-name span{font-family:var(--font-data);font-size:11px;color:var(--ink-2);} .ds-nav{display:flex;gap:4px;} .ds-nav a{display:flex;align-items:center;padding:0 12px;font-size:14px;font-weight:550;color:var(--ink-2);text-decoration:none;border-bottom:2px solid transparent;transition:color .2s var(--ease-out),border-color .2s var(--ease-out);} .ds-nav a:hover{color:var(--ink);} .ds-nav a.is-active{color:var(--ink);border-bottom-color:var(--red);} .ds-nav a:focus-visible{outline:2px solid var(--red);outline-offset:-2px;} .ds-sheet{align-self:center;margin-left:auto;font-family:var(--font-data);font-size:12px;color:var(--ink-2);} .ds-sheet b{color:var(--red);font-weight:500;}"
+    },
+    {
+      "name": "Ask Form",
+      "kind": "input",
+      "refersTo": "chat-input",
+      "description": "Borderless chat input inside a ruled frame; inset red ring on focus, red send button.",
+      "html": "<form class=\"ds-ask\" onsubmit=\"return false\"><input class=\"ds-ask-input\" placeholder=\"Ask a question about Ankit\"><button class=\"ds-ask-send\" aria-label=\"Send\"><svg class=\"ds-ico\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></button></form>",
+      "css": ":host{--paper:#E6EFD9;--paper-2:#DAE7CA;--rule:#7FA672;--ink:#1C2A1F;--ink-2:#3F5245;--ink-3:#4F6354;--red:#B8321C;--red-hover:#9C2814;--on-red:#FFF6EE;--grid-major:rgba(70,118,64,0.24);--font-letter:'Archivo','Arial Narrow',sans-serif;--font-data:'JetBrains Mono',ui-monospace,Menlo,monospace;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-ico{width:1.1em;height:1.1em;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none;} .ds-ask{display:flex;border:1.5px solid var(--ink);background:var(--paper);max-width:420px;} .ds-ask:focus-within{box-shadow:inset 0 0 0 2px var(--red);} .ds-ask-input{flex:1;min-width:0;min-height:48px;padding:0 16px;background:transparent;border:0;font:16px var(--font-letter);color:var(--ink);caret-color:var(--red);} .ds-ask-input::placeholder{color:var(--ink-3);} .ds-ask-input:focus{outline:none;} .ds-ask-send{width:52px;display:grid;place-items:center;border:0;background:var(--red);color:var(--on-red);cursor:pointer;transition:background-color .2s var(--ease-out);} .ds-ask-send:hover{background:var(--red-hover);} .ds-ask-send .ds-ico{width:20px;height:20px;}"
+    },
+    {
+      "name": "Suggestion Chip",
+      "kind": "chip",
+      "refersTo": "suggest-chip",
+      "description": "Dashed prompt chip in the assistant; turns solid red on hover.",
+      "html": "<button class=\"ds-suggest\">Tech stack?</button>",
+      "css": ":host{--paper:#E6EFD9;--paper-2:#DAE7CA;--rule:#7FA672;--ink:#1C2A1F;--ink-2:#3F5245;--ink-3:#4F6354;--red:#B8321C;--red-hover:#9C2814;--on-red:#FFF6EE;--grid-major:rgba(70,118,64,0.24);--font-letter:'Archivo','Arial Narrow',sans-serif;--font-data:'JetBrains Mono',ui-monospace,Menlo,monospace;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-suggest{min-height:34px;padding:0 12px;font:550 14px var(--font-letter);background:transparent;border:1.25px dashed var(--ink-2);border-radius:0;color:var(--ink);cursor:pointer;transition:border-color .2s var(--ease-out),color .2s var(--ease-out);} .ds-suggest:hover{border-color:var(--red);border-style:solid;color:var(--red);} .ds-suggest:focus-visible{outline:2px solid var(--red);outline-offset:3px;}"
+    },
+    {
+      "name": "Demo Stamp and Status Note",
+      "kind": "chip",
+      "refersTo": "stamp",
+      "description": "Rubber-stamp label for demo systems and the circled red-pencil status note.",
+      "html": "<span class=\"ds-stamp\">Demo</span> <span class=\"ds-note\">shipped</span>",
+      "css": ":host{--paper:#E6EFD9;--paper-2:#DAE7CA;--rule:#7FA672;--ink:#1C2A1F;--ink-2:#3F5245;--ink-3:#4F6354;--red:#B8321C;--red-hover:#9C2814;--on-red:#FFF6EE;--grid-major:rgba(70,118,64,0.24);--font-letter:'Archivo','Arial Narrow',sans-serif;--font-data:'JetBrains Mono',ui-monospace,Menlo,monospace;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-stamp{display:inline-block;font:500 11px var(--font-data);text-transform:uppercase;letter-spacing:.12em;color:var(--red);border:1.5px solid currentColor;padding:1px 6px;transform:rotate(3deg);} .ds-note{display:inline-block;margin-left:16px;font:italic 600 13px/1.5 var(--font-letter);font-variation-settings:'wdth' 92;color:var(--red);padding:0 .55em 1px;border:1.5px solid currentColor;border-radius:50% 46% 52% 44%/60% 52% 58% 48%;transform:rotate(-2deg);}"
+    },
+    {
+      "name": "Data-flow Strip",
+      "kind": "custom",
+      "refersTo": "flow-box",
+      "description": "Architecture as mono boxes joined by drawn arrows.",
+      "html": "<ol class=\"ds-flow\"><li>Upload PDF</li><li>Tika + OCR</li><li>PostgreSQL</li><li>REST API</li></ol>",
+      "css": ":host{--paper:#E6EFD9;--paper-2:#DAE7CA;--rule:#7FA672;--ink:#1C2A1F;--ink-2:#3F5245;--ink-3:#4F6354;--red:#B8321C;--red-hover:#9C2814;--on-red:#FFF6EE;--grid-major:rgba(70,118,64,0.24);--font-letter:'Archivo','Arial Narrow',sans-serif;--font-data:'JetBrains Mono',ui-monospace,Menlo,monospace;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px 0;list-style:none;margin:0;padding:0;} .ds-flow li{position:relative;font:12px/1.3 var(--font-data);color:var(--ink);padding:5px 8px;border:1.25px solid var(--ink);background:var(--paper);} .ds-flow li+li{margin-left:26px;} .ds-flow li+li::after{content:'';position:absolute;left:-24px;top:50%;width:20px;height:1.25px;background:var(--ink);} .ds-flow li+li::before{content:'';position:absolute;left:-9px;top:calc(50% - 4px);width:7px;height:7px;border-top:1.25px solid var(--ink);border-right:1.25px solid var(--ink);transform:rotate(45deg);}"
+    },
+    {
+      "name": "Answer Box",
+      "kind": "card",
+      "refersTo": "button-red",
+      "description": "The SOLUTION answer: Ans. line plus actions inside a hand-drawn red pencil box.",
+      "html": "<div class=\"ds-answer\"><svg class=\"ds-pbox\" viewBox=\"0 0 400 200\" preserveAspectRatio=\"none\" aria-hidden=\"true\"><path d=\"M6 9 C120 4 290 7 394 6 C396 70 393 140 395 194 C280 197 120 193 5 195 C3 130 7 60 4 4\"/></svg><p class=\"ds-ans\"><b>Ans.</b> Open to backend, full-stack and platform roles.</p><a class=\"ds-btn ds-btn-red\" href=\"#\"><svg class=\"ds-ico\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"1\"/><path d=\"m3 7 9 6 9-6\"/></svg> Email me</a></div>",
+      "css": ":host{--paper:#E6EFD9;--paper-2:#DAE7CA;--rule:#7FA672;--ink:#1C2A1F;--ink-2:#3F5245;--ink-3:#4F6354;--red:#B8321C;--red-hover:#9C2814;--on-red:#FFF6EE;--grid-major:rgba(70,118,64,0.24);--font-letter:'Archivo','Arial Narrow',sans-serif;--font-data:'JetBrains Mono',ui-monospace,Menlo,monospace;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-ico{width:1.1em;height:1.1em;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none;} .ds-btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;font-family:var(--font-letter);font-size:15px;font-weight:650;font-variation-settings:'wdth' 106;text-decoration:none;border:1.5px solid transparent;border-radius:0;cursor:pointer;transition:background-color .2s var(--ease-out),color .2s var(--ease-out),transform .2s var(--ease-out);} .ds-btn:active{transform:translateY(1px);} .ds-btn:focus-visible{outline:2px solid var(--red);outline-offset:3px;} .ds-btn-red{background:var(--red);color:var(--on-red);} .ds-btn-red:hover{background:var(--red-hover);} .ds-answer{position:relative;padding:24px;max-width:380px;font-family:var(--font-letter);color:var(--ink);} .ds-pbox{position:absolute;inset:-4px;width:calc(100% + 8px);height:calc(100% + 8px);overflow:visible;pointer-events:none;} .ds-pbox path{fill:none;stroke:var(--red);stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;} .ds-ans{font-size:17px;line-height:1.45;margin:0 0 16px;} .ds-ans b{font-weight:800;font-variation-settings:'wdth' 125;color:var(--red);margin-right:4px;}"
+    },
+    {
+      "name": "Solution Name",
+      "kind": "custom",
+      "refersTo": "display",
+      "description": "Display lettering, condensed, with the red double underline.",
+      "html": "<h1 class=\"ds-sol\">Ankit Shilarkar<svg viewBox=\"0 0 600 16\" preserveAspectRatio=\"none\" aria-hidden=\"true\"><path d=\"M2 5 C150 3 420 7 598 4\"/><path d=\"M6 12 C180 10 400 14 594 11\"/></svg></h1>",
+      "css": ":host{--paper:#E6EFD9;--paper-2:#DAE7CA;--rule:#7FA672;--ink:#1C2A1F;--ink-2:#3F5245;--ink-3:#4F6354;--red:#B8321C;--red-hover:#9C2814;--on-red:#FFF6EE;--grid-major:rgba(70,118,64,0.24);--font-letter:'Archivo','Arial Narrow',sans-serif;--font-data:'JetBrains Mono',ui-monospace,Menlo,monospace;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-sol{position:relative;display:inline-block;margin:0;font-family:var(--font-letter);font-size:64px;font-weight:850;font-variation-settings:'wdth' 82;letter-spacing:-.035em;line-height:.95;padding-bottom:.2em;color:var(--ink);} .ds-sol svg{position:absolute;left:0;right:0;bottom:0;width:100%;height:.16em;overflow:visible;} .ds-sol path{fill:none;stroke:var(--red);stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Computation Pad",
+    "overview": "The whole site is one worked engineering problem on green computation paper. The page ground is the pad itself: pale green paper, a fine 20px grid with a darker line every fifth square, and a single darker margin rule running down the left edge. Text is graphite ink. Red pencil is reserved for the things a reviewer would mark: the answer, the primary action, annotations, cross-references and status notes. Each section is a numbered sheet (\"Sheet n of 6\") with a ruled title block, and the first sheet reads as GIVEN / FIND / SOLUTION, with the name set huge, double-underlined, and the contact actions boxed in red pencil.\n\nThe night variant is the same pad under a desk lamp: deep green-black paper, a barely-there grid, chalk-white ink, and a brighter coral red pencil so the answer still reads as the mark. Density is that of an engineer's worksheet: ruled rows, dashed separators, numbered lines, boxes joined by arrows. Components are drawn, not manufactured. Boxes, arrows, underlines, double underlines, stamps and loosely circled notes do the work that rounded cards, gradients and glows do on a generic developer portfolio. Those are rejected by the direction contract, and the build carries none of them.\n\nTheme selection follows the operating system on first visit and persists an explicit toggle in localStorage (`data-theme=\"light\"` or `\"dark\"` on `<html>`). The day pad is the token default on `:root`; the night pad is the `[data-theme=\"dark\"]` override.",
+    "keyCharacteristics": [
+      "Paper ground with a drawn 20px / 100px grid on `body`, and a fixed margin rule at the left.",
+      "Graphite ink for content, red pencil only for answers, actions, annotations and active state.",
+      "Archivo with its width axis doing hierarchy work: condensed (wdth 80–92) for big lettering, expanded (wdth 106–125) for caps labels and marks.",
+      "JetBrains Mono for every piece of data: line numbers, dates, stack lines, flow boxes, sheet numbers, title-block cells.",
+      "Square corners everywhere; hand-drawn SVG strokes (non-scaling) for the answer box and double underlines.",
+      "Flat paper. One soft ambient shadow, only on the sticky header once scrolled."
+    ],
+    "rules": [
+      {
+        "name": "The Red Pencil Rule",
+        "body": "Red marks the answer, the action and the annotation, nothing else. Body text, headings and structure are always graphite; if a red element is not something a reviewer would circle or click, it is wrong.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Source Rule",
+        "body": "Hex and rgba values live only in `base.css` custom properties. Every other stylesheet references `var(--paper)`, `var(--ink)`, `var(--red)` and friends, so both pads stay in lockstep.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Pads Rule",
+        "body": "Every new token gets a day value on `:root` and a night value under `[data-theme=\"dark\"]`. The night red is brighter (coral), not the same hex, so the mark keeps its contrast on dark paper.",
+        "section": "colors"
+      },
+      {
+        "name": "The Width Axis Rule",
+        "body": "Hierarchy comes from Archivo's width and weight, not from new families. Big lettering goes condensed (wdth 80–92), caps labels and marks go wide (wdth 106–125), reading copy stays at wdth 100.",
+        "section": "typography"
+      },
+      {
+        "name": "The Readout Rule",
+        "body": "If it is a number, date, stack list, file-like label or diagram node, it is set in JetBrains Mono. Prose is never set in mono.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Paper Rule",
+        "body": "Nothing on the pad floats. Panels are framed with a 1.5px graphite line and, at most, set on the one-step-deeper header green. No card shadows, no glows, no gradients used for depth.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Drawn Not Rounded Rule",
+        "body": "Corners are square unless a pencil drew the shape. A curve must come from an SVG pencil stroke or a hand-circled note, never from `border-radius` on a container.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do take every color from the `base.css` custom properties and define both a day value and a night value for anything new.",
+      "Do reserve red pencil for answers, primary actions, annotations, cross-references, status and the active or focused state.",
+      "Do set numbers, dates, stack lists, diagram nodes and sheet numbers in JetBrains Mono with tabular numerals.",
+      "Do build hierarchy with Archivo's width axis: condensed (wdth 80–92) for big lettering, wide (wdth 106–125) for caps labels.",
+      "Do separate content with rules: 1px margin-rule lines between rows, 1.5px graphite lines for structure.",
+      "Do show architecture as boxes joined by arrows, and outcomes as Problem / Approach / Outcome.",
+      "Do label demo work with the red \"Demo\" stamp, and keep every new section a numbered sheet with a title block.",
+      "Do keep content visible by default and run drawing motion only when `prefers-reduced-motion` allows it.",
+      "Do keep tap targets at 44px for primary buttons and at least 32px for inline links."
+    ],
+    "donts": [
+      "Don't add rounded cards, gradients used for depth, glows or drop shadows. The header's scroll shadow is the only shadow.",
+      "Don't round container corners. Curves come only from pencil-drawn SVG strokes, circled notes and legend dots.",
+      "Don't use red for body text, headings or decoration that nobody would circle or click.",
+      "Don't add font families. Archivo and JetBrains Mono cover every role.",
+      "Don't use icon fonts or emoji as icons. Use the inline 1.75-stroke SVG sprite.",
+      "Don't hardcode hex or rgba outside `base.css`."
+    ]
+  }
+}

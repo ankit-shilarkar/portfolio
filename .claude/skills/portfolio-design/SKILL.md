@@ -1,89 +1,48 @@
 ---
 name: portfolio-design
-description: Apply Ankit's exact design system when adding new sections, components, or visual elements to the portfolio.
+description: Apply Ankit's exact design system ("The Computation Pad") when adding new sections, components, or visual elements to the portfolio.
 user-invocable: true
 ---
 
-# Portfolio Design System — Ankit Shilarkar
+# Portfolio Design System — "The Computation Pad"
 
-## Color Palette (CSS variables — NEVER use hex directly)
-```
---orange:  #E8622A   Primary accent, CTAs, hero text
---yellow:  #F2B227   Secondary warm accent, marquee
---teal:    #2AB8A0   Success/live badges, active states
---indigo:  #4A5FC4   Azure/cloud related content
---rose:    #D94F7A   In-progress/new projects
-```
+The source of truth is `DESIGN.md` (tokens, type, components, rules) and
+`.impeccable/design.json`. Read DESIGN.md before any visual change. Summary:
 
-## Typography
-- Display headings: Cabinet Grotesk (900 weight, tight letter-spacing -1.5px)
-- Italic accents: Instrument Serif (400 italic, used in `<em>` inside h2)
-- Body / UI text: DM Sans (400/500 weight)
-- Section titles: `clamp(30px, 4vw, 46px)` — never fixed px for headings
+## World
+The site is a worked engineering problem on green computation paper:
+GIVEN → FIND → SOLUTION on sheet 1, then numbered sheets (Work log, Systems,
+Toolkit, Ask, Contact). Graphite ink for text, **red pencil only for answers,
+primary actions, status notes and cross-references**.
 
-## Spacing Rhythm
-- Section padding: `100px 5%`
-- Card internal padding: `24-36px`
-- Gap between grid items: `12-20px` (tight), `48-64px` (sections)
-- Border radius: `var(--radius)` = 16px for cards, `var(--radius-sm)` = 8px for pills/badges
+## Tokens (CSS variables only — hex lives in base.css)
+- Ground: `--paper`, `--paper-2`, `--paper-3`, grid `--grid` / `--grid-major`, margin `--rule`
+- Ink: `--ink` (primary), `--ink-2` (secondary), `--ink-3` (tertiary/meta)
+- Red pencil: `--red`, `--red-hover`, `--on-red`
+- Spacing: `--s1`…`--s9` (4px base), grid square `--sq` = 20px
+- Night pad = `:root[data-theme="dark"]` overrides the same names
 
-## Component Patterns
+## Type
+- Archivo (variable `wdth`): display 850 at wdth 80–82, tight tracking (≥ -0.04em); body 16/1.6
+- JetBrains Mono: data only — dates, stack tags, diagram labels, sheet numbers. Never prose.
 
-### New card (generic):
-```html
-<div class="[type]-card c-[color]">
-  <div class="[type]-type-row">
-    <span class="[type]-type">CATEGORY LABEL</span>
-    <span class="badge badge-[variant]">Status</span>
-  </div>
-  <div class="[type]-name">Card Title</div>
-  <div class="[type]-desc">Description text...</div>
-</div>
-```
+## Building blocks (see components.css)
+- New section: `<section class="sheet" id="x" data-sheet="n">` + `.title-block` (`.tb-subject` h2 + `.tb-note`)
+- Entries are ruled rows (`.log-item`, `.sys`), never rounded cards
+- Status: `<span class="note">shipped</span>` (circled red pencil); demo label: `<span class="stamp">Demo</span>`
+- Data flow: `<ol class="flow"><li>A</li><li>B</li></ol>` (boxes joined by arrows)
+- Extra detail: `<details class="working"><summary>Show working</summary>…`
+- Skills: `.k core | solid | learn` inside the `.kit` table
+- Buttons: `.btn .btn-red` (primary), `.btn .btn-line` (secondary)
+- Icons: inline SVG `<use href="#i-…">`, 1.75 stroke — no emoji
 
-### New section:
-```html
-<section id="section-id" class="section [bg-class]">
-  <div class="sec-tag">Label</div>
-  <h2 class="section-title">Title with<br/><em>italic accent.</em></h2>
-  <!-- content -->
-</section>
-```
+## Never
+Rounded cards, gradients, glows, glass, emoji icons, eyebrow/kicker labels above headings,
+colored thick left borders, monospace for prose, invented metrics.
 
-### Timeline project entry (Burger Singh style — colored left border):
-```html
-<div class="tl-project" style="border-left-color:var(--teal);">
-  <div class="tl-project-name">
-    Project Name
-    <span class="badge badge-new">Status</span>
-  </div>
-  <ul class="tl-bullets">
-    <li>Bullet with <strong>key tech</strong> bolded.</li>
-  </ul>
-</div>
-```
+## Motion
+One signature moment only: pencil-drawing the problem sheet on first load.
+Content is visible by default; everything is disabled under `prefers-reduced-motion`.
 
-### Skill pill variants:
-- `.pill.core` — orange tint (primary expertise)
-- `.pill.strong` — teal tint (solid, daily-use skills)
-- `.pill.learning` — yellow tint (actively learning)
-- `.pill` — neutral (familiar, not daily use)
-
-## Animation Rules
-- Page load: `fadeUp` (opacity 0→1, translateY 20→0), staggered 0.1s per element
-- Scroll reveal: `.reveal` class added by animations.js, triggered by IntersectionObserver
-- Hover: `transform: translateY(-2px)` on cards, `translateX(4px)` on contact links
-- Never animate background-color (expensive repaint) — use opacity/transform only
-
-## Dark / Light Mode
-- Default theme: dark
-- All new components must be tested in BOTH themes
-- Use CSS variables exclusively — zero hardcoded colors in components
-- Background layers: `--bg` (page) → `--bg2` (alt sections) → `--surface` (cards)
-
-## Tone & Voice
-- Section titles: bold claim + italic serif accent ("Where I've been. What I've *shipped.*")
-- Badge labels: brief, factual ("Going Live", "Active", "Shipped", "In Progress")
-- Bullet points: start with action, bold the technology, end with impact
-  ✅ "Built <strong>JWT auth</strong> — reduced unauthorized access incidents to zero."
-  ❌ "Worked on authentication using JWT."
+## Tone
+Direct and factual. Bullets start with an action and name the technology; demos are labeled as demos.
