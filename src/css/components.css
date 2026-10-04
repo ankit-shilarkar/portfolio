@@ -18,7 +18,8 @@
 /* cross-reference to the sheet that proves a fact */
 .xref {
   justify-self: end;
-  align-self: center;
+  align-self: start;
+  margin-top: 0.45em;
   font-family: var(--font-data);
   font-size: 11px;
   color: var(--red);
