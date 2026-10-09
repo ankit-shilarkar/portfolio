@@ -409,6 +409,7 @@
 }
 .case-calc dt::after { content: '.'; }
 .case-calc dd { color: var(--ink-2); max-width: 64ch; }
+.case-calc strong { color: var(--ink); }
 /* the result is the boxed answer, like the one on sheet 1 */
 .case-ans { border: 1.5px solid var(--red); padding: var(--s3); margin-left: calc(var(--s3) * -1); }
 .case-ans dd { color: var(--ink); }

@@ -30,9 +30,9 @@ LinkedIn: https://www.linkedin.com/in/ankit-shilarkar2504/`
     text: `Ankit joined Burger Singh on February 25, 2026 as Assistant Manager – Software Development (an SDE-1 equivalent role).
 At Burger Singh he is working on:
 - Azure Functions: timer-triggered (cron jobs) and HTTP-triggered serverless backend services
-- Employee Onboarding Portal: going live soon, includes Aadhaar verification for KYC/identity compliance
+- Employee Onboarding Portal: shipped; Aadhaar ID verification on the DigiLocker API cut onboarding to minutes
 - React Native Expo App: taking full ownership of an existing mobile + web application
-- Cloud Telephony Middleware App: a mobile app for inbound/outbound call management with a dialing interface
+- Cloud Telephony Middleware App: shipped React Native middleware app for Knowlarity telephony with call interception and caller identification
 - Burger Singh Store Locator: public web page where users enter a PIN code and see 3 nearest outlets on Google Maps
 - LLM-Assisted Development: uses Claude, ChatGPT, and Gemini to streamline team development
 - Makes DB architecture decisions and evaluates cost vs. performance tradeoffs`
@@ -92,7 +92,7 @@ He describes himself as backend-focused but full-stack capable.`
   {
     id: 'telephony',
     tags: ['telephony', 'call', 'phone', 'dialing', 'inbound', 'outbound', 'middleware'],
-    text: `At Burger Singh, Ankit is building a Cloud Telephony Middleware Mobile Application.
+    text: `At Burger Singh, Ankit shipped a Cloud Telephony Middleware app (React Native, Knowlarity) with call interception and caller identification.
 This app handles inbound and outbound call management and provides a clean dialing interface
 layered over cloud telephony APIs. It simplifies call operations for non-technical staff.`
   },
@@ -106,7 +106,7 @@ This uses the Google Maps API with distance matrix computation and geolocation.`
   {
     id: 'onboarding',
     tags: ['onboarding', 'employee', 'aadhaar', 'kyc', 'verification', 'portal', 'identity'],
-    text: `At Burger Singh, Ankit is building an Employee Onboarding Portal that is going live soon.
+    text: `At Burger Singh, Ankit architected and shipped an Employee Onboarding Portal on the DigiLocker API, cutting onboarding to minutes.
 It includes Aadhaar verification for KYC and identity compliance.
 Ankit is making architectural decisions on backend services and database selection.`
   },
@@ -195,17 +195,19 @@ GitHub: https://github.com/ankit-shilarkar`
     id: 'now',
     tags: ['now', 'this week', 'currently', 'focus', 'working on', 'right now', 'looking for', 'sde-2', 'sde2', 'next role'],
     text: `What Ankit is focused on right now (Now sheet, updated 9 Oct 2026):
-Building: taking the Aadhaar-verified employee onboarding portal to go-live at Burger Singh; a cloud telephony middleware dialer for store staff; a PIN-code store locator on Google Maps.
+Building: MongoDB to PostgreSQL and VM to Azure Blob migrations (targeting ~30% lower infra cost); the franchise platform's Spring Boot services for orders, outlets and ticketing across 100+ outlets; a PIN-code store locator on Google Maps.
 Studying: system design, Kafka internals, Redis caching, distributed systems (Raft, sagas, 2PC), DSA on LeetCode.
 Looking for: a backend role at SDE-2 level (Java, Spring Boot, distributed systems) on a team that owns production systems end to end. Full-time, remote or hybrid.`
   },
   {
     id: 'case-studies',
-    tags: ['case study', 'case studies', 'problem', 'incident', 'debug', 'debugging', 'slow query', 'sql', 'performance', 'serverless', 'cost', 'root cause'],
-    text: `Problems Ankit has worked (case studies on the site):
-1. Burger Singh, 2026 — scheduled jobs and small APIs without running servers: timer-triggered Azure Functions (cron) for background jobs and HTTP-triggered functions for endpoints; he owns the database architecture and picks data-access patterns with cost and query load in mind.
-2. Netlink America, KMI (Ovie) — recurring production incidents: traced failures through Spring Boot microservices using Kubernetes pod logs, fixed the underlying code paths in JWT/RBAC-secured REST APIs and PostgreSQL access; recurring issues went down.
-3. Netlink America, OnBase — slow SQL in a compliance-critical document system: profiled slow queries, rewrote joins, added indexes, built audit logging for regulatory traceability, refactored backend components; better performance and reliability with traceability intact.`
+    tags: ['case study', 'case studies', 'problem', 'incident', 'debug', 'debugging', 'slow query', 'sql', 'performance', 'serverless', 'cost', 'root cause', 'impact', 'numbers', 'metrics', 'latency', 'redis', 'cache', 'mttr', 'digilocker', 'outlets'],
+    text: `Case studies on Ankit's site (numbers from his résumé, approximate):
+1. Burger Singh franchise platform — Spring Boot microservices for orders, outlets and ticketing serving 100+ franchise outlets. Added a Redis cache-aside layer for menu, outlet and config lookups: read latency down ~60%. Tenant isolation with PostgreSQL Row-Level Security; optimized 20+ database functions.
+2. Burger Singh Aadhaar onboarding — Spring Boot ID-verification service on the DigiLocker API cut onboarding to minutes; Aadhaar data encrypted at rest with AES-256; legacy OTP replaced with a configurable flow. Leading MongoDB to PostgreSQL and VM to Azure Blob migrations targeting ~30% lower infra cost.
+3. Burger Singh serverless automation — Azure Functions for scheduled jobs (offer validation, call-log ingestion into Snowflake) save 10+ manual hours every week; secure wrapper APIs keep third-party credentials server-side.
+4. Netlink America KMI (Ovie) — 6+ Spring Boot microservices for 10+ enterprise clients, 25+ JWT/RBAC-secured APIs; debugging via Kubernetes pod logs cut mean time to resolution by ~30%; test coverage raised to 75%+ on owned modules.
+5. Netlink America KMI (Ovie) — slow SQL tuned with indexing and Hibernate/JPA fetch strategies: API response times ~35% faster.`
   },
   {
     id: 'til-notes',

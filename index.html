@@ -210,8 +210,8 @@
         <div class="now-col">
           <h3 class="now-head">Building</h3>
           <ul class="now-list">
-            <li><strong>Employee onboarding portal.</strong> Taking the Aadhaar-verified KYC flow to go-live at Burger Singh.</li>
-            <li><strong>Cloud telephony middleware.</strong> A simple dialer over telephony APIs so store staff can run calls.</li>
+            <li><strong>Data &amp; storage migration.</strong> MongoDB → PostgreSQL and VM file storage → Azure Blob, targeting ~30% lower infra cost.</li>
+            <li><strong>Franchise platform.</strong> Spring Boot services for orders, outlets and ticketing across 100+ outlets.</li>
             <li><strong>Store locator.</strong> PIN code in, three nearest outlets out, on Google Maps.</li>
           </ul>
         </div>
@@ -258,7 +258,7 @@
               <p class="tags">Azure Functions · Java · PostgreSQL</p>
             </li>
             <li class="log-item">
-              <h4 class="log-name">Employee onboarding portal <span class="note">going live</span></h4>
+              <h4 class="log-name">Employee onboarding portal <span class="note">shipped</span></h4>
               <p>Full portal with Aadhaar verification for KYC and identity compliance. Chose the database and storage for cost and scale.</p>
               <p class="tags">Aadhaar KYC · architecture</p>
             </li>
@@ -268,7 +268,7 @@
               <p class="tags">React Native · Expo</p>
             </li>
             <li class="log-item">
-              <h4 class="log-name">Cloud telephony middleware <span class="note">in progress</span></h4>
+              <h4 class="log-name">Cloud telephony middleware <span class="note">shipped</span></h4>
               <p>Inbound and outbound call management behind a simple dialer, so non-technical staff can run calls without touching the telephony APIs.</p>
               <p class="tags">Mobile · telephony APIs</p>
             </li>
@@ -347,51 +347,79 @@
     <section class="sheet" id="cases" data-sheet="4" aria-labelledby="cases-title">
       <div class="title-block">
         <h2 class="tb-subject" id="cases-title">Problems I've worked</h2>
-        <p class="tb-note">Real problems from real jobs, set out the way I'd work them on paper.</p>
+        <p class="tb-note">Real problems from real jobs, set out the way I'd work them on paper. Numbers are approximate, measured at the time.</p>
       </div>
 
       <div class="cases">
 
         <article class="case">
           <header class="case-head">
-            <p class="case-where">Burger Singh · 2026</p>
-            <h3 class="case-title">Scheduled jobs and small APIs, without running servers</h3>
+            <p class="case-where">Burger Singh · Franchise platform</p>
+            <h3 class="case-title">Hot lookups slowing every outlet's reads</h3>
           </header>
           <dl class="case-calc">
-            <div><dt>Given</dt><dd>Recurring data-processing jobs and a handful of lightweight endpoints, owned by a small team watching cost.</dd></div>
-            <div><dt>Find</dt><dd>A way to run them reliably without keeping VMs up around the clock.</dd></div>
-            <div><dt>Working</dt><dd>Timer-triggered Azure Functions (cron) for the background jobs; HTTP-triggered functions for the endpoints. I own the database architecture behind them and choose the data-access pattern with cost and query load in mind.</dd></div>
-            <div class="case-ans"><dt>Result</dt><dd>Jobs and endpoints run on demand on serverless infrastructure, with database and cost decisions made deliberately rather than by default.</dd></div>
+            <div><dt>Given</dt><dd>Spring Boot microservices for orders, outlets and ticketing serving <strong>100+ franchise outlets</strong>, with menu, outlet and config data read on almost every request.</dd></div>
+            <div><dt>Find</dt><dd>Faster reads without changing the services' contracts or risking stale config.</dd></div>
+            <div><dt>Working</dt><dd>Added a Redis cache-aside layer for menu, outlet and config lookups. Enforced tenant isolation with PostgreSQL Row-Level Security and optimized <strong>20+ database functions</strong>.</dd></div>
+            <div class="case-ans"><dt>Result</dt><dd>Read latency down <strong>~60%</strong> on those lookups.</dd></div>
           </dl>
-          <p class="tags">Azure Functions · Java · PostgreSQL · cost trade-offs</p>
+          <p class="tags">Java · Spring Boot · Redis · PostgreSQL RLS</p>
+        </article>
+
+        <article class="case">
+          <header class="case-head">
+            <p class="case-where">Burger Singh · Aadhaar onboarding</p>
+            <h3 class="case-title">Onboarding that took too long and held sensitive IDs</h3>
+          </header>
+          <dl class="case-calc">
+            <div><dt>Given</dt><dd>Employee onboarding that needed Aadhaar identity verification, a legacy OTP flow, and Aadhaar data that had to be protected.</dd></div>
+            <div><dt>Find</dt><dd>Fast, compliant verification with the data safe at rest.</dd></div>
+            <div><dt>Working</dt><dd>Architected a Spring Boot ID-verification service on the DigiLocker API, replaced the legacy OTP with a configurable flow, and encrypted Aadhaar data at rest with <strong>AES-256</strong>.</dd></div>
+            <div class="case-ans"><dt>Result</dt><dd>Onboarding cut to <strong>minutes</strong>. Now leading the MongoDB → PostgreSQL and VM → Azure Blob migrations, targeting <strong>~30%</strong> lower infra cost.</dd></div>
+          </dl>
+          <p class="tags">Spring Boot · DigiLocker API · AES-256 · PostgreSQL · Azure Blob</p>
+        </article>
+
+        <article class="case">
+          <header class="case-head">
+            <p class="case-where">Burger Singh · Serverless automation</p>
+            <h3 class="case-title">Scheduled work done by hand, every week</h3>
+          </header>
+          <dl class="case-calc">
+            <div><dt>Given</dt><dd>Recurring jobs such as offer validation and call-log ingestion into Snowflake, run manually, plus third-party integrations whose credentials had to stay off clients.</dd></div>
+            <div><dt>Find</dt><dd>Automation that runs on schedule without servers to babysit.</dd></div>
+            <div><dt>Working</dt><dd>Timer-triggered Azure Functions for the scheduled jobs and Snowflake ingestion; secure wrapper APIs that keep third-party credentials server-side; Spring Boot services containerized with Docker for consistent UAT and prod.</dd></div>
+            <div class="case-ans"><dt>Result</dt><dd><strong>10+ manual hours saved every week.</strong></dd></div>
+          </dl>
+          <p class="tags">Azure Functions · Snowflake · Docker · Linux</p>
         </article>
 
         <article class="case">
           <header class="case-head">
             <p class="case-where">Netlink America · KMI (Ovie)</p>
-            <h3 class="case-title">Recurring production incidents, traced from pod logs</h3>
+            <h3 class="case-title">Production incidents in a multi-tenant SaaS</h3>
           </header>
           <dl class="case-calc">
-            <div><dt>Given</dt><dd>An insurance insights platform built as Spring Boot microservices on Kubernetes and Azure, with issues that kept coming back in production.</dd></div>
-            <div><dt>Find</dt><dd>The root causes, not just the symptoms.</dd></div>
-            <div><dt>Working</dt><dd>Read Kubernetes pod logs to trace each failure back through the services, then fixed the underlying code paths in the JWT/RBAC-secured REST APIs and their PostgreSQL access.</dd></div>
-            <div class="case-ans"><dt>Result</dt><dd>Recurring issues went down, and log-based root-cause analysis became part of how I debug.</dd></div>
+            <div><dt>Given</dt><dd><strong>6+ Spring Boot microservices</strong> serving <strong>10+ enterprise clients</strong> on Kubernetes, with <strong>25+ JWT/RBAC-secured APIs</strong> and production issues that took too long to resolve.</dd></div>
+            <div><dt>Find</dt><dd>Root causes, found faster.</dd></div>
+            <div><dt>Working</dt><dd>Traced failures through the services with Kubernetes pod and application logs, fixed the underlying code paths, and raised test coverage to <strong>75%+</strong> on owned modules with JUnit and Mockito.</dd></div>
+            <div class="case-ans"><dt>Result</dt><dd>Mean time to resolution down <strong>~30%</strong>.</dd></div>
           </dl>
-          <p class="tags">Spring Boot · Kubernetes · Azure · PostgreSQL · Hibernate</p>
+          <p class="tags">Spring Boot · Kubernetes · JUnit · Mockito</p>
         </article>
 
         <article class="case">
           <header class="case-head">
-            <p class="case-where">Netlink America · OnBase</p>
-            <h3 class="case-title">Slow SQL in a compliance-critical document system</h3>
+            <p class="case-where">Netlink America · KMI (Ovie)</p>
+            <h3 class="case-title">Slow SQL behind insurance analytics</h3>
           </header>
           <dl class="case-calc">
-            <div><dt>Given</dt><dd>An enterprise document management system where audit trails matter and some queries were slow.</dd></div>
-            <div><dt>Find</dt><dd>Faster, more reliable queries without weakening the audit and compliance features.</dd></div>
-            <div><dt>Working</dt><dd>Profiled the slow queries, rewrote joins and added indexes; built the audit-logging features for regulatory traceability; refactored backend components so they were easier to maintain.</dd></div>
-            <div class="case-ans"><dt>Result</dt><dd>Better query performance and reliability, with full document traceability intact.</dd></div>
+            <div><dt>Given</dt><dd>PostgreSQL-backed APIs on Hibernate/JPA with slow queries on the hot paths.</dd></div>
+            <div><dt>Find</dt><dd>Faster responses without rewriting the data model.</dd></div>
+            <div><dt>Working</dt><dd>Profiled the slow queries, added the right indexes, and tuned Hibernate/JPA fetch strategies to stop over-fetching.</dd></div>
+            <div class="case-ans"><dt>Result</dt><dd>API response times improved by <strong>~35%</strong>.</dd></div>
           </dl>
-          <p class="tags">Java · SQL profiling · indexing · audit logging</p>
+          <p class="tags">PostgreSQL · indexing · Hibernate / JPA</p>
         </article>
 
       </div>
