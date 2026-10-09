@@ -12,7 +12,7 @@ Two audiences, weighted equally:
 - **Engineers running a technical screen.** They want depth: architecture choices, trade-offs, the stack behind each system, and code.
 
 ## Product Purpose
-Personal portfolio for Ankit Shilarkar, a Java / Spring Boot backend engineer (currently Assistant Manager – Software Development at Burger Singh, SDE-1 equivalent) moving toward SDE-2. Success means a visitor contacts him (email or LinkedIn) or opens his GitHub, after understanding his level and what he has shipped.
+Personal portfolio for Ankit Shilarkar, a Java / Spring Boot backend engineer (currently Principal Engineer, Software Development at Burger Singh) targeting backend roles at SDE-2 level. Success means a visitor contacts him (email or LinkedIn) or opens his GitHub, after understanding his level and what he has shipped.
 
 ## Positioning
 A backend engineer who has run real production systems (Azure Functions, microservices, PostgreSQL, Kubernetes debugging) across three companies in about three years. He makes architecture and database cost decisions and uses LLMs in day-to-day engineering. The site's own "Ask AI" assistant is a working demo of that.

@@ -27,7 +27,7 @@ LinkedIn: https://www.linkedin.com/in/ankit-shilarkar2504/`
   {
     id: 'burger-singh',
     tags: ['burger singh', 'current', 'job', 'company', 'now', 'working', 'present', '2026', 'role', 'title', 'building'],
-    text: `Ankit joined Burger Singh on February 25, 2026 as Assistant Manager – Software Development (an SDE-1 equivalent role).
+    text: `Ankit joined Burger Singh on February 25, 2026 as Principal Engineer (Software Development).
 At Burger Singh he is working on:
 - Azure Functions: timer-triggered (cron jobs) and HTTP-triggered serverless backend services
 - Employee Onboarding Portal: shipped; Aadhaar ID verification on the DigiLocker API cut onboarding to minutes

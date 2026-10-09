@@ -16,4 +16,4 @@ Add or update work experience in the portfolio:
 
 4. Commit with message: "content: add experience at [company]"
 
-Example usage: /update-experience "Burger Singh" "Assistant Manager, Software Development" "Feb 25 2026" "Azure Functions timer+http, Employee onboarding portal with Aadhaar, React Native Expo app ownership, Cloud telephony middleware app, Store locator with Google Maps, LLM-assisted development"
+Example usage: /update-experience "Burger Singh" "Principal Engineer, Software Development" "Feb 25 2026" "Azure Functions timer+http, Employee onboarding portal with Aadhaar, React Native Expo app ownership, Cloud telephony middleware app, Store locator with Google Maps, LLM-assisted development"
