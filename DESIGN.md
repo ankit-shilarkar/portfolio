@@ -381,3 +381,10 @@ One inline SVG symbol sprite (arrow, external, mail, sun, moon, send) on a 24px 
 - **Don't** add font families. Archivo and JetBrains Mono cover every role.
 - **Don't** use icon fonts or emoji as icons. Use the inline 1.75-stroke SVG sprite.
 - **Don't** hardcode hex or rgba outside `base.css`.
+
+## Added sheets (Now, Case studies, Notes)
+
+- **Now** (`#now`): three ruled columns (`.now-grid` › `.now-col`), each a 19px/750 heading (`.now-head`) over `.now-list` items marked with a 10×2px red-pencil dash. The update date sits in the title-block note as `<time class="tb-date">` in mono red.
+- **Case studies** (`#cases`): `.case` rows; on ≥768px a 4/8 split with `.case-head` (mono red `.case-where` + `.case-title`) left and the calculation right. `.case-calc` reuses the pad's Given / Find / Working / Result vocabulary as red italic run-in labels; the Result row is boxed in red pencil (`.case-ans`), echoing sheet 1's answer box.
+- **Notes to self** (`#notes`): `ol.til[reversed]` of `.til-item` rows; on ≥768px a 9em mono red date column beside the entry. Inline `code` is mono on `--paper-2` with a 1px `--rule` border.
+- Header: seven nav links, so the one-row header starts at 1024px; below that the nav is the scrolling second row.

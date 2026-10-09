@@ -61,7 +61,7 @@
 }
 
 @media (min-width: 768px) {
-  :root { --gutter: 40px; --margin: 72px; --head-h: 60px; }
+  :root { --gutter: 40px; --margin: 72px; }
 }
 
 /* ── RESET ── */

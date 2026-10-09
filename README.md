@@ -134,6 +134,9 @@ npx linkinator http://localhost:3000
 /update-experience "Company" "Role" "Start Date" "Description of work"
 /add-project "Project Name" "real|demo" "stack, items" "description" "github-url"
 /update-chatbot-kb "topic" "new information"
+/update-now "building: …" "studying: …"
+/add-til "title" "what I learned" "tags"
+/add-case-study "company · project" "title" "given" "find" "working" "result" "stack"
 /deploy "optional commit message"
 /pr-review "branch-name or PR description"
 ```

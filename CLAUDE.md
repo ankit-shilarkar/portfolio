@@ -73,6 +73,15 @@ npx linkinator index.html
   Update this whenever Ankit changes jobs, ships projects, or updates skills
 - index.html is the single source of all section markup (one sheet per section)
 - Personal projects are always labeled Demo; never invent metrics or claims
+- Sheets: 1 Problem · 2 Now · 3 Work log · 4 Case studies · 5 Systems · 6 Toolkit · 7 Notes · 8 Ask · 9 Contact.
+  Adding/removing a sheet means updating `data-sheet`, "Sheet n of N" in the header and the GIVEN `sh. n` cross-references
+
+## Update cadence
+- Weekly: `/update-now`, `/add-til`, review Worker `/misses` → `/update-chatbot-kb`
+- Monthly: Work log status notes, demo project progress
+- Quarterly: `/add-case-study`, re-rate Toolkit skills, résumé
+- 6-monthly: GIVEN facts, impeccable audit, Gemini model name in worker/wrangler.toml
+- Yearly: footer year, PRODUCT.md review, rotate Gemini key + Cloudflare token
 
 ## Agents (`.claude/agents/`)
 | Agent | Purpose |
@@ -91,6 +100,9 @@ npx linkinator index.html
 | `/update-experience` | `/update-experience "Company" "Role" "Date" "Description"` |
 | `/add-project` | `/add-project "Name" "real\|demo" "stack" "desc" "github-url"` |
 | `/update-chatbot-kb` | `/update-chatbot-kb "topic" "new info"` |
+| `/update-now` | Weekly — refresh the Now sheet (Building / Studying / Looking for) |
+| `/add-til` | Weekly — add a "Notes to self" entry |
+| `/add-case-study` | Quarterly — add a Given/Find/Working/Result case study |
 | `/deploy` | `/deploy "optional commit message"` |
 | `/pr-review` | `/pr-review "branch-name or PR description"` |
 

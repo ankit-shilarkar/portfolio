@@ -53,9 +53,11 @@
         <span class="pad-name-role">Backend engineering</span>
       </a>
       <nav class="pad-nav" aria-label="Sections">
+        <a href="#now">Now</a>
         <a href="#work">Work</a>
+        <a href="#cases">Cases</a>
         <a href="#systems">Systems</a>
-        <a href="#toolkit">Toolkit</a>
+        <a href="#notes">Notes</a>
         <a href="#ask">Ask AI</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -65,7 +67,7 @@
           <div><dt>By</dt><dd>A. Shilarkar</dd></div>
           <div><dt>Date</dt><dd>2026</dd></div>
         </dl>
-        <span class="pad-sheet" aria-hidden="true">Sheet <b id="sheetNo">1</b> of 6</span>
+        <span class="pad-sheet" aria-hidden="true">Sheet <b id="sheetNo">1</b> of 9</span>
         <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch theme">
           <svg class="ico ico-sun" aria-hidden="true"><use href="#i-sun"/></svg>
           <svg class="ico ico-moon" aria-hidden="true"><use href="#i-moon"/></svg>
@@ -84,12 +86,12 @@
         <div class="given">
           <p class="calc-label">Given</p>
           <ol class="given-list">
-            <li><span class="ln">(1)</span> 2+ years shipping production Java backends <a class="xref" href="#work" aria-label="See sheet 2">sh.&nbsp;2</a></li>
-            <li><span class="ln">(2)</span> Java 17 · Spring Boot 3 · Spring Security · JPA <a class="xref" href="#toolkit" aria-label="See sheet 4">sh.&nbsp;4</a></li>
-            <li><span class="ln">(3)</span> Azure Functions, Docker, Kubernetes, PostgreSQL <a class="xref" href="#toolkit" aria-label="See sheet 4">sh.&nbsp;4</a></li>
-            <li><span class="ln">(4)</span> Built at Burger Singh, Netlink America, IOTA Informatics <a class="xref" href="#work" aria-label="See sheet 2">sh.&nbsp;2</a></li>
-            <li><span class="ln">(5)</span> Owns database architecture and cost decisions <a class="xref" href="#work" aria-label="See sheet 2">sh.&nbsp;2</a></li>
-            <li><span class="ln">(6)</span> Uses Claude, ChatGPT and Gemini daily to ship faster <a class="xref" href="#ask" aria-label="See sheet 5">sh.&nbsp;5</a></li>
+            <li><span class="ln">(1)</span> 2+ years shipping production Java backends <a class="xref" href="#work" aria-label="See sheet 3">sh.&nbsp;3</a></li>
+            <li><span class="ln">(2)</span> Java 17 · Spring Boot 3 · Spring Security · JPA <a class="xref" href="#toolkit" aria-label="See sheet 6">sh.&nbsp;6</a></li>
+            <li><span class="ln">(3)</span> Azure Functions, Docker, Kubernetes, PostgreSQL <a class="xref" href="#toolkit" aria-label="See sheet 6">sh.&nbsp;6</a></li>
+            <li><span class="ln">(4)</span> Built at Burger Singh, Netlink America, IOTA Informatics <a class="xref" href="#work" aria-label="See sheet 3">sh.&nbsp;3</a></li>
+            <li><span class="ln">(5)</span> Owns database architecture and cost decisions <a class="xref" href="#cases" aria-label="See sheet 4">sh.&nbsp;4</a></li>
+            <li><span class="ln">(6)</span> Uses Claude, ChatGPT and Gemini daily to ship faster <a class="xref" href="#ask" aria-label="See sheet 8">sh.&nbsp;8</a></li>
           </ol>
 
           <p class="calc-label">Find</p>
@@ -197,8 +199,45 @@
       </div>
     </section>
 
-    <!-- ── SHEET 2 · WORK LOG ── -->
-    <section class="sheet" id="work" data-sheet="2" aria-labelledby="work-title">
+    <!-- ── SHEET 2 · NOW (update weekly: /update-now) ── -->
+    <section class="sheet" id="now" data-sheet="2" aria-labelledby="now-title">
+      <div class="title-block">
+        <h2 class="tb-subject" id="now-title">Now</h2>
+        <p class="tb-note">What has my attention this week. Updated <time datetime="2026-10-09" class="tb-date">9 Oct 2026</time>.</p>
+      </div>
+
+      <div class="now-grid">
+        <div class="now-col">
+          <h3 class="now-head">Building</h3>
+          <ul class="now-list">
+            <li><strong>Employee onboarding portal.</strong> Taking the Aadhaar-verified KYC flow to go-live at Burger Singh.</li>
+            <li><strong>Cloud telephony middleware.</strong> A simple dialer over telephony APIs so store staff can run calls.</li>
+            <li><strong>Store locator.</strong> PIN code in, three nearest outlets out, on Google Maps.</li>
+          </ul>
+        </div>
+        <div class="now-col">
+          <h3 class="now-head">Studying</h3>
+          <ul class="now-list">
+            <li><strong>System design.</strong> Load balancing, consistent hashing, CAP, sharding, HLD / LLD.</li>
+            <li><strong>Kafka internals.</strong> Partitions, consumer groups, exactly-once, event sourcing, CQRS.</li>
+            <li><strong>Redis &amp; caching.</strong> Cache-aside, write-through, TTLs, distributed locks.</li>
+            <li><strong>Distributed systems.</strong> Raft and Paxos, sagas, 2PC, failure recovery.</li>
+            <li><strong>DSA.</strong> Graphs, DP, trees and sliding windows on LeetCode.</li>
+          </ul>
+        </div>
+        <div class="now-col">
+          <h3 class="now-head">Looking for</h3>
+          <ul class="now-list">
+            <li>A backend role at SDE-2 level: Java, Spring Boot, distributed systems.</li>
+            <li>A team that owns production systems end to end.</li>
+            <li>Full-time, remote or hybrid. <a href="#contact">Get in touch</a>.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SHEET 3 · WORK LOG ── -->
+    <section class="sheet" id="work" data-sheet="3" aria-labelledby="work-title">
       <div class="title-block">
         <h2 class="tb-subject" id="work-title">Work log</h2>
         <p class="tb-note">Three companies, newest first. Status notes are current as of 2026.</p>
@@ -304,8 +343,62 @@
       </div>
     </section>
 
-    <!-- ── SHEET 3 · SYSTEMS (demo projects) ── -->
-    <section class="sheet" id="systems" data-sheet="3" aria-labelledby="systems-title">
+    <!-- ── SHEET 4 · CASE STUDIES (add quarterly: /add-case-study) ── -->
+    <section class="sheet" id="cases" data-sheet="4" aria-labelledby="cases-title">
+      <div class="title-block">
+        <h2 class="tb-subject" id="cases-title">Problems I've worked</h2>
+        <p class="tb-note">Real problems from real jobs, set out the way I'd work them on paper.</p>
+      </div>
+
+      <div class="cases">
+
+        <article class="case">
+          <header class="case-head">
+            <p class="case-where">Burger Singh · 2026</p>
+            <h3 class="case-title">Scheduled jobs and small APIs, without running servers</h3>
+          </header>
+          <dl class="case-calc">
+            <div><dt>Given</dt><dd>Recurring data-processing jobs and a handful of lightweight endpoints, owned by a small team watching cost.</dd></div>
+            <div><dt>Find</dt><dd>A way to run them reliably without keeping VMs up around the clock.</dd></div>
+            <div><dt>Working</dt><dd>Timer-triggered Azure Functions (cron) for the background jobs; HTTP-triggered functions for the endpoints. I own the database architecture behind them and choose the data-access pattern with cost and query load in mind.</dd></div>
+            <div class="case-ans"><dt>Result</dt><dd>Jobs and endpoints run on demand on serverless infrastructure, with database and cost decisions made deliberately rather than by default.</dd></div>
+          </dl>
+          <p class="tags">Azure Functions · Java · PostgreSQL · cost trade-offs</p>
+        </article>
+
+        <article class="case">
+          <header class="case-head">
+            <p class="case-where">Netlink America · KMI (Ovie)</p>
+            <h3 class="case-title">Recurring production incidents, traced from pod logs</h3>
+          </header>
+          <dl class="case-calc">
+            <div><dt>Given</dt><dd>An insurance insights platform built as Spring Boot microservices on Kubernetes and Azure, with issues that kept coming back in production.</dd></div>
+            <div><dt>Find</dt><dd>The root causes, not just the symptoms.</dd></div>
+            <div><dt>Working</dt><dd>Read Kubernetes pod logs to trace each failure back through the services, then fixed the underlying code paths in the JWT/RBAC-secured REST APIs and their PostgreSQL access.</dd></div>
+            <div class="case-ans"><dt>Result</dt><dd>Recurring issues went down, and log-based root-cause analysis became part of how I debug.</dd></div>
+          </dl>
+          <p class="tags">Spring Boot · Kubernetes · Azure · PostgreSQL · Hibernate</p>
+        </article>
+
+        <article class="case">
+          <header class="case-head">
+            <p class="case-where">Netlink America · OnBase</p>
+            <h3 class="case-title">Slow SQL in a compliance-critical document system</h3>
+          </header>
+          <dl class="case-calc">
+            <div><dt>Given</dt><dd>An enterprise document management system where audit trails matter and some queries were slow.</dd></div>
+            <div><dt>Find</dt><dd>Faster, more reliable queries without weakening the audit and compliance features.</dd></div>
+            <div><dt>Working</dt><dd>Profiled the slow queries, rewrote joins and added indexes; built the audit-logging features for regulatory traceability; refactored backend components so they were easier to maintain.</dd></div>
+            <div class="case-ans"><dt>Result</dt><dd>Better query performance and reliability, with full document traceability intact.</dd></div>
+          </dl>
+          <p class="tags">Java · SQL profiling · indexing · audit logging</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ── SHEET 5 · SYSTEMS (demo projects) ── -->
+    <section class="sheet" id="systems" data-sheet="5" aria-labelledby="systems-title">
       <div class="title-block">
         <h2 class="tb-subject" id="systems-title">Systems I've built to learn</h2>
         <p class="tb-note">Personal demo projects, not employer work. Each shows its data flow.</p>
@@ -385,8 +478,8 @@
       </div>
     </section>
 
-    <!-- ── SHEET 4 · TOOLKIT (skills + learning) ── -->
-    <section class="sheet" id="toolkit" data-sheet="4" aria-labelledby="toolkit-title">
+    <!-- ── SHEET 6 · TOOLKIT ── -->
+    <section class="sheet" id="toolkit" data-sheet="6" aria-labelledby="toolkit-title">
       <div class="title-block">
         <h2 class="tb-subject" id="toolkit-title">Toolkit</h2>
         <ul class="legend" aria-label="Legend">
@@ -438,20 +531,45 @@
         </tbody>
       </table>
 
-      <div class="studying">
-        <h3 class="studying-title">On the desk right now</h3>
-        <ol class="studying-list">
-          <li><strong>System design.</strong> Load balancing, consistent hashing, CAP, sharding, HLD / LLD.</li>
-          <li><strong>Kafka internals.</strong> Partitions, consumer groups, exactly-once, event sourcing, CQRS.</li>
-          <li><strong>Redis &amp; caching.</strong> Cache-aside, write-through, TTLs, distributed locks.</li>
-          <li><strong>Distributed systems.</strong> Raft and Paxos, sagas, 2PC, failure recovery.</li>
-          <li><strong>DSA.</strong> Graphs, DP, trees and sliding windows on LeetCode.</li>
-        </ol>
-      </div>
     </section>
 
-    <!-- ── SHEET 5 · ASK ── -->
-    <section class="sheet" id="ask" data-sheet="5" aria-labelledby="ask-title">
+    <!-- ── SHEET 7 · NOTES / TIL (add weekly: /add-til) ── -->
+    <section class="sheet" id="notes" data-sheet="7" aria-labelledby="notes-title">
+      <div class="title-block">
+        <h2 class="tb-subject" id="notes-title">Notes to self</h2>
+        <p class="tb-note">Short things I learned, newest first. The assistant reads these too.</p>
+      </div>
+
+      <ol class="til" reversed>
+        <li class="til-item">
+          <time class="til-date" datetime="2026-10-09">09 Oct 2026</time>
+          <div class="til-body">
+            <h3 class="til-title">Kafka only orders messages within a partition</h3>
+            <p>Ordering is per partition, not per topic. If events for one order must stay in sequence, give them the same key so they land in the same partition.</p>
+            <p class="tags">Kafka · ordering</p>
+          </div>
+        </li>
+        <li class="til-item">
+          <time class="til-date" datetime="2026-10-09">09 Oct 2026</time>
+          <div class="til-body">
+            <h3 class="til-title">Cache-aside puts the cache on the read path only</h3>
+            <p>Read from Redis; on a miss, read the database and fill the cache. On writes, update the database and delete the key rather than updating it, which avoids racing writers leaving stale data.</p>
+            <p class="tags">Redis · caching</p>
+          </div>
+        </li>
+        <li class="til-item">
+          <time class="til-date" datetime="2026-10-09">09 Oct 2026</time>
+          <div class="til-body">
+            <h3 class="til-title">Timer-triggered Azure Functions use six-field cron</h3>
+            <p>The NCRONTAB format starts with seconds: <code>0 */5 * * * *</code> runs every five minutes, not every five seconds.</p>
+            <p class="tags">Azure Functions · cron</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ── SHEET 8 · ASK ── -->
+    <section class="sheet" id="ask" data-sheet="8" aria-labelledby="ask-title">
       <div class="title-block">
         <h2 class="tb-subject" id="ask-title">Ask about Ankit</h2>
         <p class="tb-note">An assistant grounded in his own notes. Try it.</p>
@@ -491,8 +609,8 @@
       </div>
     </section>
 
-    <!-- ── SHEET 6 · CONTACT ── -->
-    <section class="sheet sheet-contact" id="contact" data-sheet="6" aria-labelledby="contact-title">
+    <!-- ── SHEET 9 · CONTACT ── -->
+    <section class="sheet sheet-contact" id="contact" data-sheet="9" aria-labelledby="contact-title">
       <div class="contact-grid">
         <div>
           <h2 class="contact-title" id="contact-title">Let's build something <span class="final-ul">worth deploying.<svg class="dbl-underline" viewBox="0 0 600 16" preserveAspectRatio="none" aria-hidden="true"><path d="M2 5 C150 3 420 7 598 4"/><path d="M6 12 C180 10 400 14 594 11"/></svg></span></h2>

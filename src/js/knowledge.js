@@ -190,6 +190,30 @@ LinkedIn: https://www.linkedin.com/in/ankit-shilarkar2504/`
 3. URL Shortener: System design implementation. Redis caching, rate limiting, Kafka analytics.
 4. AutoDeploy: CI/CD pipeline template. GitHub Actions + Docker + SonarQube + AWS ECS + Slack alerts.
 GitHub: https://github.com/ankit-shilarkar`
+  },
+  {
+    id: 'now',
+    tags: ['now', 'this week', 'currently', 'focus', 'working on', 'right now', 'looking for', 'sde-2', 'sde2', 'next role'],
+    text: `What Ankit is focused on right now (Now sheet, updated 9 Oct 2026):
+Building: taking the Aadhaar-verified employee onboarding portal to go-live at Burger Singh; a cloud telephony middleware dialer for store staff; a PIN-code store locator on Google Maps.
+Studying: system design, Kafka internals, Redis caching, distributed systems (Raft, sagas, 2PC), DSA on LeetCode.
+Looking for: a backend role at SDE-2 level (Java, Spring Boot, distributed systems) on a team that owns production systems end to end. Full-time, remote or hybrid.`
+  },
+  {
+    id: 'case-studies',
+    tags: ['case study', 'case studies', 'problem', 'incident', 'debug', 'debugging', 'slow query', 'sql', 'performance', 'serverless', 'cost', 'root cause'],
+    text: `Problems Ankit has worked (case studies on the site):
+1. Burger Singh, 2026 — scheduled jobs and small APIs without running servers: timer-triggered Azure Functions (cron) for background jobs and HTTP-triggered functions for endpoints; he owns the database architecture and picks data-access patterns with cost and query load in mind.
+2. Netlink America, KMI (Ovie) — recurring production incidents: traced failures through Spring Boot microservices using Kubernetes pod logs, fixed the underlying code paths in JWT/RBAC-secured REST APIs and PostgreSQL access; recurring issues went down.
+3. Netlink America, OnBase — slow SQL in a compliance-critical document system: profiled slow queries, rewrote joins, added indexes, built audit logging for regulatory traceability, refactored backend components; better performance and reliability with traceability intact.`
+  },
+  {
+    id: 'til-notes',
+    tags: ['til', 'today i learned', 'notes', 'learned', 'learn about', 'kafka', 'redis', 'kafka partition', 'ordering', 'cache-aside', 'ncrontab', 'cron'],
+    text: `Recent notes from Ankit's "Notes to self" log:
+- Kafka only orders messages within a partition; use the same key to keep related events in sequence.
+- Cache-aside: read from Redis, on a miss read the database and fill the cache; on writes update the database and delete the key.
+- Timer-triggered Azure Functions use six-field NCRONTAB cron starting with seconds: "0 */5 * * * *" runs every five minutes.`
   }
 ];
 

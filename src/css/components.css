@@ -358,31 +358,90 @@
 .k.learn { color: var(--red); }
 .k.learn::before { border-color: var(--red); border-style: dashed; }
 
-.studying {
-  margin-top: var(--s7);
-  padding: var(--s5);
-  border: 1.5px dashed var(--red);
-  max-width: 820px;
-}
-.studying-title {
-  font-size: 19px; font-weight: 650;
-  color: var(--ink);
+
+/* ── NOW ── */
+.tb-date { font-family: var(--font-data); font-size: 0.9em; color: var(--red); white-space: nowrap; }
+.now-col { border-top: 1.5px solid var(--ink); padding-top: var(--s4); }
+.now-head {
+  font-size: 19px; font-weight: 750;
+  font-variation-settings: 'wdth' 90;
   margin-bottom: var(--s3);
 }
-.studying-list { display: grid; gap: var(--s2); counter-reset: study; }
-.studying-list li {
-  counter-increment: study;
+.now-list { display: grid; gap: var(--s3); }
+.now-list li {
   position: relative;
-  padding-left: 2.2em;
+  padding-left: var(--s5);
   color: var(--ink-2);
-  max-width: 70ch;
+  max-width: 46ch;
 }
-.studying-list li::before {
-  content: '(' counter(study) ')';
-  position: absolute; left: 0; top: 0.3em;
-  font-family: var(--font-data); font-size: 12px; color: var(--ink-3);
+.now-list li::before {
+  content: '';
+  position: absolute; left: 2px; top: 11px;
+  width: 10px; height: 2px;
+  background: var(--red);
 }
-.studying-list strong { color: var(--ink); }
+.now-list strong { color: var(--ink); }
+.now-list a { color: var(--red); }
+
+/* ── CASE STUDIES ── */
+.case { padding: var(--s6) 0; border-bottom: 1px solid var(--rule); }
+.case:first-child { border-top: 1px solid var(--rule); }
+.case-where {
+  font-family: var(--font-data);
+  font-size: 12px; color: var(--red);
+  margin-bottom: var(--s1);
+}
+.case-title {
+  font-size: clamp(20px, 2vw, 24px);
+  font-weight: 750;
+  font-variation-settings: 'wdth' 92;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  max-width: 28ch;
+  text-wrap: balance;
+}
+.case-calc { display: grid; gap: var(--s3); margin: var(--s4) 0 var(--s2); }
+.case-calc div { display: grid; grid-template-columns: 5.5em 1fr; gap: var(--s3); }
+.case-calc dt {
+  font-size: 15px; font-weight: 750; font-style: italic;
+  color: var(--red);
+  padding-top: 1px;
+}
+.case-calc dt::after { content: '.'; }
+.case-calc dd { color: var(--ink-2); max-width: 64ch; }
+/* the result is the boxed answer, like the one on sheet 1 */
+.case-ans { border: 1.5px solid var(--red); padding: var(--s3); margin-left: calc(var(--s3) * -1); }
+.case-ans dd { color: var(--ink); }
+
+/* ── NOTES / TIL ── */
+.til { border-top: 1px solid var(--rule); }
+.til-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s1);
+  padding: var(--s5) 0;
+  border-bottom: 1px solid var(--rule);
+}
+.til-date {
+  font-family: var(--font-data);
+  font-size: 12px; color: var(--red);
+  font-variant-numeric: tabular-nums;
+  padding-top: 4px;
+}
+.til-title {
+  font-size: 18px; font-weight: 650;
+  line-height: 1.35;
+  margin-bottom: var(--s1);
+}
+.til-body > p:not(.tags) { color: var(--ink-2); max-width: 68ch; }
+.til code, .now-list code {
+  font-family: var(--font-data);
+  font-size: 0.86em;
+  padding: 0 4px;
+  border: 1px solid var(--rule);
+  background: var(--paper-2);
+  color: var(--ink);
+}
 
 /* ── ASK (explainer column) ── */
 .ask-how > p { color: var(--ink-2); max-width: 46ch; margin-bottom: var(--s4); font-size: 17px; }

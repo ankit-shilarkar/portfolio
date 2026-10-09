@@ -152,6 +152,9 @@ main { position: relative; z-index: 1; }
   border-top: 1px solid var(--rule);
 }
 
+/* ── NOW / NOTES ── */
+.now-grid { display: grid; gap: var(--s6); }
+
 /* ── SHEET 5 · ASK ── */
 .ask-grid { display: grid; gap: var(--s6); }
 
@@ -183,21 +186,6 @@ main { position: relative; z-index: 1; }
    ≥ 768px — tablet / desktop
    ============================================================ */
 @media (min-width: 768px) {
-  .pad-head-row {
-    grid-template-columns: auto 1fr auto;
-    grid-template-areas: "name nav tools";
-    gap: var(--s5);
-    min-height: var(--head-h);
-  }
-  .pad-nav {
-    margin: 0; padding: 0;
-    border-top: 0;
-    justify-content: center;
-    align-self: stretch;
-    align-items: stretch;
-  }
-  .pad-nav a { display: flex; align-items: center; padding: 0 var(--s3); }
-  .pad-sheet { display: inline; }
   .fig-wide { display: block; }
   .fig-tall { display: none; }
 
@@ -247,7 +235,35 @@ main { position: relative; z-index: 1; }
 
   .ask-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--s7); align-items: start; }
 
+  .now-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s6); }
+  .case { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); column-gap: var(--s6); }
+  .case-head { grid-row: span 2; }
+  .cases .case-calc { margin-top: 0; }
+  .til .til-item { grid-template-columns: 9em minmax(0, 1fr); gap: var(--s5); }
+
   .contact-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+}
+
+/* ============================================================
+   ≥ 1024px — one-row pad header
+   ============================================================ */
+@media (min-width: 1024px) {
+  :root { --head-h: 60px; }
+  .pad-head-row {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "name nav tools";
+    gap: var(--s4);
+    min-height: var(--head-h);
+  }
+  .pad-nav {
+    margin: 0; padding: 0;
+    border-top: 0;
+    justify-content: center;
+    align-self: stretch;
+    align-items: stretch;
+  }
+  .pad-nav a { display: flex; align-items: center; padding: 0 var(--s2); }
+  .pad-sheet { display: inline; }
 }
 
 /* ============================================================
