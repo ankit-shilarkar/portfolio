@@ -1,21 +1,17 @@
 /**
- * chat-config.js — Chatbot runtime settings
+ * chat-config.js — Chatbot runtime settings (no secrets here)
  *
- * The Gemini key is NEVER committed. The deploy workflow
- * (.github/workflows/deploy.yml) replaces the placeholder below
- * with the GEMINI_API_KEY repository secret at deploy time.
+ * `endpoint` is the Cloudflare Worker URL, e.g.
+ *   https://portfolio-chat.<your-subdomain>.workers.dev
+ * The Pages deploy (.github/workflows/deploy.yml) replaces the
+ * placeholder with the CHAT_ENDPOINT repository variable. The Gemini
+ * key lives only in the Worker as a Cloudflare secret.
  *
- * Protect the key in Google Cloud Console → APIs & Services →
- * Credentials: restrict it to the "Generative Language API" and to
- * the HTTP referrer https://ankit-shilarkar.github.io/*
- *
- * With no key (local dev, or secret not set) the assistant still
+ * With no endpoint (local dev, or variable not set) the assistant still
  * works in "notes mode": it answers straight from knowledge.js.
  */
 window.CHAT_CONFIG = {
-  provider: 'gemini',
-  model: 'gemini-2.5-flash',
-  apiKey: '__GEMINI_API_KEY__',
+  endpoint: '__CHAT_ENDPOINT__',
   maxQuestionsPerSession: 20,
   maxHistoryTurns: 10
 };

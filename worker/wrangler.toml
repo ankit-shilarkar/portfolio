@@ -1,0 +1,32 @@
+# Cloudflare Worker that answers "Ask about Ankit" on the portfolio.
+# Deployed by .github/workflows/worker.yml on every push to main that
+# touches worker/, src/js/knowledge.js or src/js/retrieval.js.
+name = "portfolio-chat"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+workers_dev = true
+
+[vars]
+ALLOWED_ORIGINS = "https://ankit-shilarkar.github.io,http://localhost:3000,http://127.0.0.1:3000"
+GEMINI_MODEL = "gemini-2.5-flash"
+
+# Per-IP limit: 10 questions per 60 s. namespace_id is any number unique
+# within your Cloudflare account; nothing needs to be created first.
+[[ratelimits]]
+name = "LIMITER"
+namespace_id = "1001"
+
+  [ratelimits.simple]
+  limit = 10
+  period = 60
+
+# Optional — log questions the knowledge base couldn't answer (90 days).
+# 1. npx wrangler kv namespace create CHAT_LOG
+# 2. uncomment and paste the id it prints:
+# [[kv_namespaces]]
+# binding = "CHAT_LOG"
+# id = "PASTE_KV_NAMESPACE_ID"
+
+# Secrets (set by the workflow, or manually with `npx wrangler secret put`):
+#   GEMINI_API_KEY  — required
+#   ADMIN_TOKEN     — optional, protects GET /misses

@@ -192,3 +192,6 @@ LinkedIn: https://www.linkedin.com/in/ankit-shilarkar2504/`
 GitHub: https://github.com/ankit-shilarkar`
   }
 ];
+
+// Shared with the Cloudflare Worker (bundled by wrangler); ignored in the browser.
+if (typeof module === 'object' && module.exports) module.exports = KNOWLEDGE_CHUNKS;

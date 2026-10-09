@@ -50,7 +50,7 @@ jobs:
 
       - name: Check for hardcoded API keys
         run: |
-          if grep -rn "sk-ant-\|AKIA\|AIza" src/ index.html; then
+          if grep -rn "sk-ant-\|AKIA\|AIza" src/ worker/ index.html; then
             echo "::error::Possible API key found in source! Remove immediately."
             exit 1
           fi
@@ -64,7 +64,7 @@ jobs:
 
       - name: Verify all JS files exist
         run: |
-          for f in src/js/theme.js src/js/knowledge.js src/js/chat-config.js src/js/chat.js src/js/animations.js; do
+          for f in src/js/theme.js src/js/knowledge.js src/js/retrieval.js src/js/chat-config.js src/js/chat.js src/js/animations.js; do
             [ -f "$f" ] || { echo "::error::Missing: $f"; exit 1; }
           done
           echo "All JS files present ✅"
@@ -87,19 +87,18 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      # The Gemini key lives only in the GEMINI_API_KEY repository secret.
-      # It is written into the deployed copy of chat-config.js, never committed.
-      # Restrict the key to the Generative Language API and the
-      # https://ankit-shilarkar.github.io/* referrer in Google Cloud Console.
-      - name: Inject chatbot key
+      # The chatbot's Cloudflare Worker URL comes from the CHAT_ENDPOINT
+      # repository variable (Settings → Secrets and variables → Actions →
+      # Variables). It is not a secret; the Gemini key lives in the Worker.
+      - name: Point chatbot at the Worker
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          CHAT_ENDPOINT: ${{ vars.CHAT_ENDPOINT }}
         run: |
-          if [ -n "$GEMINI_API_KEY" ]; then
-            sed -i "s|__GEMINI_API_KEY__|${GEMINI_API_KEY}|" src/js/chat-config.js
-            echo "Chatbot key injected ✅"
+          if [ -n "$CHAT_ENDPOINT" ]; then
+            sed -i "s|__CHAT_ENDPOINT__|${CHAT_ENDPOINT}|" src/js/chat-config.js
+            echo "Chatbot endpoint set to $CHAT_ENDPOINT ✅"
           else
-            echo "::warning::GEMINI_API_KEY secret not set — chatbot runs in notes mode"
+            echo "::warning::CHAT_ENDPOINT variable not set — chatbot runs in notes mode"
           fi
 
       - name: Upload artifact

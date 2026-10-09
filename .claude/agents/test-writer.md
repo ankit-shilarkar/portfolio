@@ -26,8 +26,9 @@ When invoked, write a test checklist for the feature or section specified.
 
 ### Chatbot
 - [ ] Auth gate shown on first load
-- [ ] With no key: header shows "notes mode" and answers come from knowledge.js
-- [ ] With key: header shows "Gemini · grounded"; a 429 falls back to notes
+- [ ] Without CHAT_ENDPOINT: header shows "notes mode" and answers come from knowledge.js
+- [ ] With the Worker: header shows "Gemini · grounded"; a 429/502 falls back to notes
+- [ ] `cd worker && node --test` passes
 - [ ] Unlock persists across page reload (localStorage)
 - [ ] Suggestion buttons send correct messages
 - [ ] Typing indicator appears while waiting

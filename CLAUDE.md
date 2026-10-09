@@ -7,7 +7,7 @@ Hosted free on GitHub Pages. No build step — plain HTML/CSS/JS.
 ## Stack
 - HTML5 + CSS3 + Vanilla JS (no frameworks, no bundler)
 - Archivo (variable width) + JetBrains Mono (Google Fonts)
-- Google Gemini API (chatbot — free tier; key injected at deploy time from the `GEMINI_API_KEY` secret)
+- Google Gemini API (chatbot, free tier) behind a Cloudflare Worker (`worker/`) that holds the key
 - impeccable design context: `PRODUCT.md`, `DESIGN.md`, `.impeccable/`
 - GitHub Pages (hosting)
 
@@ -24,9 +24,11 @@ portfolio/
 │   └── js/
 │       ├── theme.js        ← Day/night pad toggle + persistence
 │       ├── knowledge.js    ← Chatbot knowledge base (KNOWLEDGE_CHUNKS) — "train" the bot here
-│       ├── chat-config.js  ← Chatbot settings; key placeholder replaced at deploy
-│       ├── chat.js         ← Retrieval + Gemini call + notes-mode fallback
+│       ├── retrieval.js    ← Shared retrieval + prompt (used by the page AND the Worker)
+│       ├── chat-config.js  ← Chatbot settings; Worker URL placeholder replaced at deploy
+│       ├── chat.js         ← Calls the Worker; notes-mode fallback
 │       └── animations.js   ← Signature pencil drawing, nav state
+├── worker/                 ← Cloudflare Worker for the chatbot (see worker/README.md)
 ├── PRODUCT.md              ← Product truth (impeccable)
 ├── DESIGN.md               ← Visual system (impeccable)
 ├── .claude/
@@ -92,17 +94,19 @@ npx linkinator index.html
 | `/deploy` | `/deploy "optional commit message"` |
 | `/pr-review` | `/pr-review "branch-name or PR description"` |
 
-## Chatbot Architecture (Current — keyword RAG + Gemini)
-Question → keyword/tag scoring over KNOWLEDGE_CHUNKS (knowledge.js) → top-3 chunks become
-Gemini's system instruction → grounded answer. No key, quota hit or network error → "notes mode"
-shows the best-matching chunk directly. 20 model questions per visit (sessionStorage).
+## Chatbot Architecture (Current — keyword RAG + Gemini via Cloudflare Worker)
+Browser → `POST {CHAT_ENDPOINT}/chat` → Worker scores the question against KNOWLEDGE_CHUNKS
+(retrieval.js) → top-3 chunks become Gemini's system instruction → grounded answer.
+No endpoint, rate limit (10/min/IP), quota or network error → "notes mode" in the browser shows
+the best-matching chunk directly. 20 model questions per visit (sessionStorage).
+Unanswered questions are logged to KV (`GET /misses`, admin token) so the KB keeps growing.
 
-Key setup: repo Settings → Secrets → Actions → `GEMINI_API_KEY`. In Google Cloud Console restrict
-the key to the Generative Language API and the referrer `https://ankit-shilarkar.github.io/*`.
-Never commit the key — CI fails on `AIza…` strings.
+Setup: worker/README.md. Secrets `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `GEMINI_API_KEY`,
+optional `CHAT_ADMIN_TOKEN`; repository variable `CHAT_ENDPOINT` = the Worker URL.
+The Gemini key never reaches the browser or the repo — CI fails on `AIza…` strings.
 
 ### Planned Upgrade Path:
-1. NOW: Keyword retrieval → Gemini (works, no server needed)
+1. NOW: Keyword retrieval → Gemini behind a Cloudflare Worker
 2. NEXT: Real RAG — embed context chunks, vector search on query, pass top-k to Claude
    - Embeddings: Anthropic text-embeddings-3 or OpenAI ada-002
    - Vector DB: pgvector (cheapest), Pinecone (easiest), Qdrant (self-hosted)
@@ -117,5 +121,5 @@ Simple JWT-based auth to protect the /admin route where Ankit can:
 - Knowledge base auto re-embeds on save (triggers re-index webhook)
 
 ## Deployment
-Push to main → GitHub Actions → gh-pages branch → live in ~60s
-See .github/workflows/deploy.yml
+Push to main → GitHub Actions → GitHub Pages → live in ~60s (.github/workflows/deploy.yml)
+Changes to worker/, knowledge.js or retrieval.js also redeploy the Worker (.github/workflows/worker.yml)

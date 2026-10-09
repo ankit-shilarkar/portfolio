@@ -1,0 +1,86 @@
+name: Deploy Chat Worker to Cloudflare
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'worker/**'
+      - 'src/js/knowledge.js'
+      - 'src/js/retrieval.js'
+      - '.github/workflows/worker.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'worker/**'
+      - 'src/js/knowledge.js'
+      - 'src/js/retrieval.js'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: "chat-worker"
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Test Worker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Unit tests
+        working-directory: worker
+        run: node --test
+
+  deploy:
+    name: Deploy Worker
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check Cloudflare credentials
+        id: creds
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ADMIN_TOKEN: ${{ secrets.CHAT_ADMIN_TOKEN }}
+        run: |
+          if [ -z "$CF_TOKEN" ] || [ -z "$GEMINI_API_KEY" ]; then
+            echo "::warning::CLOUDFLARE_API_TOKEN or GEMINI_API_KEY secret not set — skipping Worker deploy (see worker/README.md)"
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          fi
+          if [ -n "$ADMIN_TOKEN" ]; then echo "admin=true" >> "$GITHUB_OUTPUT"; else echo "admin=false" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Deploy with Wrangler (with admin token)
+        if: steps.creds.outputs.ok == 'true' && steps.creds.outputs.admin == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: worker
+          secrets: |
+            GEMINI_API_KEY
+            ADMIN_TOKEN
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ADMIN_TOKEN: ${{ secrets.CHAT_ADMIN_TOKEN }}
+
+      - name: Deploy with Wrangler
+        if: steps.creds.outputs.ok == 'true' && steps.creds.outputs.admin != 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: worker
+          secrets: |
+            GEMINI_API_KEY
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}

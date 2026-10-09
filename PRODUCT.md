@@ -22,7 +22,7 @@ Visitors arrive from LinkedIn, resumes, and job applications, on both phones and
 
 ## Capabilities and Constraints
 - Static site only: no server. Secrets must not be committed. The CI job fails on strings that look like API keys (`AIza`, `sk-ant-`, `AKIA`) in `src/` or `index.html`.
-- Chatbot: retrieval over a hand-written knowledge base, answered by an LLM. Provider is moving to Google Gemini (free tier). The key is injected at deploy time from a GitHub Actions secret and should be HTTP-referrer-restricted. The knowledge base must be easy to grow over time ("ever evolving").
+- Chatbot: retrieval over a hand-written knowledge base, answered by an LLM. Provider is Google Gemini (free tier), called from a Cloudflare Worker that holds the key as a secret; the browser only knows the Worker URL. The knowledge base must be easy to grow over time ("ever evolving").
 - Dark and light themes are both supported.
 
 ## Brand Commitments

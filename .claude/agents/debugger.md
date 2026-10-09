@@ -25,7 +25,7 @@ Step 3: **Chatbot bugs**
   - Check browser console for API errors (CORS, 401, rate limit)
   - Verify `KNOWLEDGE_CHUNKS` (src/js/knowledge.js) has entries for the topic being asked about
   - Check auth flow: is `localStorage.getItem('chat-unlocked')` set correctly?
-  - Check `#chatMode`: "notes mode" means no key was injected (GEMINI_API_KEY secret missing)
+  - Check `#chatMode`: "notes mode" means CHAT_ENDPOINT wasn't injected; then curl `<endpoint>/health` (configured:false = GEMINI_API_KEY secret missing in the Worker)
 
 Step 4: **Layout bugs**
   - Check grid breakpoints in `layout.css`

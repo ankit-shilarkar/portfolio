@@ -20,9 +20,11 @@ portfolio/
 │   └── js/
 │       ├── theme.js              ← Day/night pad toggle
 │       ├── knowledge.js          ← Chatbot knowledge base (edit to "train" it)
-│       ├── chat-config.js        ← Chatbot settings (key injected at deploy)
-│       ├── chat.js               ← Retrieval + Gemini + notes-mode fallback
+│       ├── retrieval.js          ← Shared retrieval (page + Worker)
+│       ├── chat-config.js        ← Chatbot settings (Worker URL injected at deploy)
+│       ├── chat.js               ← Calls the Worker + notes-mode fallback
 │       └── animations.js         ← Pencil-drawing intro, nav state
+├── worker/                       ← Cloudflare Worker for the chatbot
 ├── PRODUCT.md                    ← Product truth (impeccable)
 ├── DESIGN.md                     ← Visual system (impeccable)
 ├── .claude/
@@ -86,25 +88,22 @@ git push origin main
 
 ## 🤖 Chatbot
 
-The "Ask about Ankit" assistant uses **retrieval + Google Gemini (free tier)**:
+The "Ask about Ankit" assistant = **retrieval + Google Gemini behind a Cloudflare Worker**:
 
-1. The question is scored against labeled knowledge chunks in `src/js/knowledge.js`
-2. The top 3 chunks become Gemini's system instruction
-3. Gemini answers grounded in those notes. With no key, quota hit or an error, it answers straight from the notes ("notes mode")
+1. The page sends the question to the Worker (`worker/`)
+2. The Worker scores it against `src/js/knowledge.js` (shared `src/js/retrieval.js`) and passes the top 3 notes to Gemini
+3. The answer comes back grounded in those notes. The Gemini key is a Cloudflare secret — never in the browser or the repo
+4. No Worker configured, rate-limited or down → the page answers straight from the notes ("notes mode")
 
-### Turn on Gemini (one time):
-1. Create a free key at https://aistudio.google.com/apikey
-2. In Google Cloud Console → Credentials, restrict it to the **Generative Language API** and the referrer `https://ankit-shilarkar.github.io/*`
-3. GitHub repo → Settings → Secrets and variables → Actions → New secret `GEMINI_API_KEY`
-4. Push to `main` — the deploy job writes the key into the deployed `chat-config.js`. Never commit it.
+**Setup (one time, free):** follow [`worker/README.md`](worker/README.md) — Cloudflare token + Gemini key as GitHub secrets, run the Worker workflow, then set the `CHAT_ENDPOINT` repository variable.
 
 ### Teach it something new:
-Add or edit a chunk in `src/js/knowledge.js` (`id`, `tags`, `text`), commit and push. Facts only.
+Add or edit a chunk in `src/js/knowledge.js` (`id`, `tags`, `text`), commit and push — the site and the Worker both redeploy. With the optional KV log, `GET /misses` lists the questions it couldn't answer so you know what to add.
 
 ### Upgrade roadmap:
 | Phase | Architecture |
 |-------|-------------|
-| 1 (now) | Keyword scoring → Gemini |
+| 1 (now) | Keyword scoring → Gemini via Cloudflare Worker |
 | 2 | Real embeddings → pgvector / Pinecone / Qdrant |
 | 3 | Mamba/SSM when stable → linear-complexity retrieval |
 

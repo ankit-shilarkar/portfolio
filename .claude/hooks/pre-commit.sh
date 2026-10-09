@@ -28,10 +28,10 @@ if [ -n "$HARDCODED" ]; then
   # Warning only — don't block
 fi
 
-# ── 3. Check the chatbot key placeholder is intact ──
-echo "Checking chatbot key placeholder..."
-if ! grep -q "__GEMINI_API_KEY__" src/js/chat-config.js 2>/dev/null; then
-  echo "❌ BLOCKED: src/js/chat-config.js must keep the __GEMINI_API_KEY__ placeholder (key is injected at deploy)."
+# ── 3. Check the chatbot endpoint placeholder is intact ──
+echo "Checking chatbot endpoint placeholder..."
+if ! grep -q "__CHAT_ENDPOINT__" src/js/chat-config.js 2>/dev/null; then
+  echo "❌ BLOCKED: src/js/chat-config.js must keep the __CHAT_ENDPOINT__ placeholder (Worker URL is injected at deploy)."
   exit 2
 fi
 
@@ -47,7 +47,7 @@ echo "✅ All CSS files linked."
 
 # ── 5. Check index.html loads all JS files ──
 echo "Checking JS imports in index.html..."
-for jsfile in theme knowledge chat-config chat animations; do
+for jsfile in theme knowledge retrieval chat-config chat animations; do
   if ! grep -q "src/js/${jsfile}.js" index.html 2>/dev/null; then
     echo "❌ BLOCKED: index.html missing script for src/js/${jsfile}.js"
     exit 2

@@ -27,8 +27,8 @@ Run a full audit when invoked. Report as CRITICAL / HIGH / MEDIUM / LOW.
 - No `eval()`, `Function()`, `setTimeout(string)`, or `document.write()`
 
 ## 3. Auth Gate (MEDIUM)
-- Verify `src/js/chat-config.js` still holds the `__GEMINI_API_KEY__` placeholder (no real key committed)
-- Verify the per-visit question cap is in place and the deployed key is referrer-restricted
+- Verify `src/js/chat-config.js` still holds the `__CHAT_ENDPOINT__` placeholder and no Gemini key appears anywhere in the repo
+- Verify the Worker (worker/src/index.js) keeps its CORS allow-list, rate limiter, input limits and server-built system prompt
   (default: `b3c67f9a5d8e...` — flag if unchanged)
 - Note: client-side auth is security theater against a determined attacker
   (they can read the JS). It's rate-limiting and UX friction only.
